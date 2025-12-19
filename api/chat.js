@@ -43,7 +43,7 @@ export default async function handler(req, res) {
                 'anthropic-version': '2023-06-01'
             },
             body: JSON.stringify({
-                model: 'claude-3-5-sonnet-20241022',
+                model: 'claude-3-5-sonnet-20240620',
                 max_tokens: 1024,
                 system: `Eres un asistente virtual de CMD Mudanzas, una empresa de mudanzas profesional en Argentina.
 
