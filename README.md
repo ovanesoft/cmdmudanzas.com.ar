@@ -21,13 +21,14 @@ Sitio web moderno y responsivo para CMD Mudanzas, empresa argentina de mudanzas 
 - ✅ Semántica HTML5
 
 ### Funcionalidades
-- ✅ Chatbot integrado con Claude AI
+- ✅ Chatbot integrado con Claude AI (serverless)
 - ✅ Formulario de contacto
-- ✅ Selector de temas de color persistente
+- ✅ Selector de temas de color persistente (22 temas)
 - ✅ Navegación móvil optimizada
 - ✅ Animaciones de scroll
 - ✅ Contadores animados
 - ✅ Validación de formularios
+- ✅ Función serverless para seguridad de API keys
 
 ### Secciones
 1. **Hero** - Presentación impactante con llamados a la acción
@@ -115,18 +116,52 @@ Para actualizar la API key:
 
 ## Instalación y Uso
 
-1. Descarga todos los archivos en un directorio
-2. Abre `index.html` en un navegador moderno
-3. No requiere compilación ni build
+### Desarrollo Local
 
-Para desarrollo local con live reload:
+1. Clona el repositorio:
+```bash
+git clone https://github.com/ovanesoft/cmdmudanzas.com.ar.git
+cd cmdmudanzas.com.ar
+```
+
+2. Inicia un servidor local:
 ```bash
 # Usando Python
-python -m http.server 8000
+python -m http.server 9090
 
 # Usando Node.js (http-server)
-npx http-server -p 8000
+npx http-server -p 9090
 ```
+
+3. Abre en tu navegador: `http://localhost:9090`
+
+**Nota**: El chatbot NO funcionará localmente ya que requiere la API key configurada en Vercel.
+
+### Deploy en Vercel
+
+1. **Conecta el repositorio de GitHub con Vercel**:
+   - Ve a [vercel.com/new](https://vercel.com/new)
+   - Importa el repositorio `cmdmudanzas.com.ar`
+   - Click en "Import"
+
+2. **Configura la variable de entorno** (⚠️ CRÍTICO):
+   - En "Environment Variables" agrega:
+     - **Name**: `CLAUDE_API_KEY`
+     - **Value**: Tu API key de Anthropic Claude
+   - Esta key se obtiene de: https://console.anthropic.com/
+
+3. **Deploy**:
+   - Click en "Deploy"
+   - Vercel desplegará automáticamente
+
+4. **Actualizaciones futuras**:
+   - Cada `git push` a la rama `main` desplegará automáticamente
+
+### Configurar dominio personalizado (Opcional)
+
+1. Ve a Project Settings → Domains en Vercel
+2. Agrega `cmdmudanzas.com.ar`
+3. Sigue las instrucciones para configurar los DNS
 
 ## Navegadores Soportados
 

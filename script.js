@@ -2,11 +2,6 @@
 // Global Variables
 // ========================================
 
-// IMPORTANTE: Configura tu API key de Claude en las variables de entorno de Vercel
-// Variable: CLAUDE_API_KEY
-const CLAUDE_API_KEY = ''; // Se cargará desde el servidor o variables de entorno
-const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
-
 let conversationHistory = [];
 
 // ========================================
@@ -164,7 +159,7 @@ function removeLoadingMessage() {
     }
 }
 
-// Send message to Claude API
+// Send message to Claude API through serverless function
 async function sendMessageToClaude(userMessage) {
     // Add user message to conversation history
     conversationHistory.push({
@@ -173,35 +168,13 @@ async function sendMessageToClaude(userMessage) {
     });
 
     try {
-        const response = await fetch(CLAUDE_API_URL, {
+        // Llamar a nuestra función serverless en /api/chat
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': CLAUDE_API_KEY,
-                'anthropic-version': '2023-06-01'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'claude-3-5-sonnet-20241022',
-                max_tokens: 1024,
-                system: `Eres un asistente virtual amable y profesional de CMD Mudanzas, una empresa argentina de mudanzas y logística.
-
-Tu objetivo es ayudar a los clientes con:
-- Información sobre servicios de mudanzas nacionales e internacionales
-- Detalles sobre mudanzas compartidas (ahorro de hasta 50%)
-- Transporte de vehículos y mascotas
-- Mudanzas corporativas y residenciales
-- Información sobre la flota (vehículos de 20, 30, 40 y 50 m³)
-- Cobertura: Argentina (nacional), Chile, Uruguay y Brasil
-
-Características del servicio:
-- Personal capacitado y profesional
-- Servicio 24/7
-- Seguimiento en tiempo real
-- Plataforma elevadora disponible para mudanzas corporativas
-- Vehículos especialmente acondicionados para mascotas
-- Gestión de documentación y trámites aduaneros para mudanzas internacionales
-
-Responde de manera clara, concisa y amigable. Si te preguntan sobre precios específicos, recomienda que completen el formulario de contacto o llamen para un presupuesto personalizado. Mantén un tono profesional pero cercano.`,
                 messages: conversationHistory
             })
         });
@@ -221,8 +194,8 @@ Responde de manera clara, concisa y amigable. Si te preguntan sobre precios espe
 
         return assistantMessage;
     } catch (error) {
-        console.error('Error al comunicarse con Claude:', error);
-        return 'Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente.';
+        console.error('Error al comunicarse con el chatbot:', error);
+        return 'Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente al +54 9 11 2714-2006.';
     }
 }
 
