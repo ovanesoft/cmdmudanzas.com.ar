@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://cmdmudanzas.com.ar/sitemap.xml
+
+# Crawl delay for bots (optional)
+Crawl-delay: 10
+
+# Disallow access to specific areas (if needed in the future)
+# Disallow: /admin/
+# Disallow: /private/
