@@ -470,12 +470,23 @@ a {
 }
 
 .nav-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.nav-logo a span {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.nav-logo-img {
+    height: 50px;
+    width: auto;
 }
 
 .nav-list {
@@ -570,6 +581,14 @@ a {
     text-align: center;
     color: var(--text-light);
     padding: 2rem;
+}
+
+.hero-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+    animation: fadeInUp 0.8s ease;
 }
 
 .hero-title {
@@ -966,13 +985,25 @@ section {
 }
 
 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo h3 {
     font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin: 0;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
 }
 
 .footer-description {
