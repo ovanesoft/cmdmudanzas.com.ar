@@ -485,7 +485,7 @@ a {
 }
 
 .nav-logo-img {
-    height: 50px;
+    height: 70px;
     width: auto;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
 }
@@ -585,7 +585,7 @@ a {
 }
 
 .hero-logo {
-    width: 150px;
+    width: 200px;
     height: auto;
     margin: 0 auto 2rem;
     display: block;
@@ -1004,9 +1004,9 @@ section {
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 80px;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
 }
 
 .footer-description {
