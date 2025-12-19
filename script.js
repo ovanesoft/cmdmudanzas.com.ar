@@ -167,22 +167,6 @@ async function sendMessageToClaude(userMessage) {
         content: userMessage
     });
 
-    const systemPrompt = `Eres un asistente virtual de CMD Mudanzas, una empresa de mudanzas profesional en Argentina.
-
-Tu objetivo es ayudar a los clientes con:
-- Información sobre servicios de mudanzas (locales, nacionales, internacionales, empresariales)
-- Presupuestos y cotizaciones
-- Zonas de cobertura (todas las provincias argentinas)
-- Servicios adicionales (embalaje, limpieza, pintura, elevación con soga, transporte de vehículos)
-- Datos de contacto y horarios
-
-Información de contacto:
-- Teléfono/WhatsApp: +54 9 11 2714-2006
-- Email: consultas@cmdmudanzas.com
-- Dirección: Antártida Argentina 7155, Martín Coronado, Buenos Aires
-
-Sé amable, profesional y directo. Invita a los clientes a solicitar presupuestos sin compromiso.`;
-
     try {
         // Llamar a nuestra función serverless en /api/chat
         const response = await fetch('/api/chat', {
@@ -192,9 +176,9 @@ Sé amable, profesional y directo. Invita a los clientes a solicitar presupuesto
             },
             body: JSON.stringify({
                 messages: conversationHistory,
-                systemPrompt: systemPrompt,
-                model: 'claude-3-5-sonnet-20241022',
-                maxTokens: 1024
+                systemPrompt: CHATBOT_CONFIG.SYSTEM_PROMPT,
+                model: CHATBOT_CONFIG.MODEL,
+                maxTokens: CHATBOT_CONFIG.MAX_TOKENS
             })
         });
 
@@ -215,7 +199,7 @@ Sé amable, profesional y directo. Invita a los clientes a solicitar presupuesto
         return assistantMessage;
     } catch (error) {
         console.error('Error al comunicarse con el chatbot:', error);
-        return 'Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente al +54 9 11 2714-2006.';
+        return `Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente al ${CHATBOT_CONFIG.PHONE}.`;
     }
 }
 

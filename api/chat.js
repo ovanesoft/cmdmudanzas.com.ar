@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { messages, systemPrompt, model = 'claude-3-5-sonnet-20241022', maxTokens = 1024 } = req.body;
+        const { messages, systemPrompt, model = 'claude-sonnet-4-20250514', maxTokens = 1024 } = req.body;
 
         // Validar que tenemos mensajes
         if (!messages || !Array.isArray(messages)) {
