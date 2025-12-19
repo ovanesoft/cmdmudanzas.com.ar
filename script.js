@@ -167,6 +167,22 @@ async function sendMessageToClaude(userMessage) {
         content: userMessage
     });
 
+    const systemPrompt = `Eres un asistente virtual de CMD Mudanzas, una empresa de mudanzas profesional en Argentina.
+
+Tu objetivo es ayudar a los clientes con:
+- Información sobre servicios de mudanzas (locales, nacionales, internacionales, empresariales)
+- Presupuestos y cotizaciones
+- Zonas de cobertura (todas las provincias argentinas)
+- Servicios adicionales (embalaje, limpieza, pintura, elevación con soga, transporte de vehículos)
+- Datos de contacto y horarios
+
+Información de contacto:
+- Teléfono/WhatsApp: +54 9 11 2714-2006
+- Email: consultas@cmdmudanzas.com
+- Dirección: Antártida Argentina 7155, Martín Coronado, Buenos Aires
+
+Sé amable, profesional y directo. Invita a los clientes a solicitar presupuestos sin compromiso.`;
+
     try {
         // Llamar a nuestra función serverless en /api/chat
         const response = await fetch('/api/chat', {
@@ -175,12 +191,16 @@ async function sendMessageToClaude(userMessage) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                messages: conversationHistory
+                messages: conversationHistory,
+                systemPrompt: systemPrompt,
+                model: 'claude-3-5-sonnet-20241022',
+                maxTokens: 1024
             })
         });
 
         if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(`API Error: ${response.status} - ${errorData.error || 'Unknown error'}`);
         }
 
         const data = await response.json();
