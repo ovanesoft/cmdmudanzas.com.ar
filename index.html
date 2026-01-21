@@ -29,6 +29,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <title>CMD Mudanzas - Servicio Profesional de Mudanzas en Argentina | Mudanzas Nacionales e Internacionales</title>
 
     <!-- Structured Data - Schema.org -->
@@ -82,9 +85,22 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-modern.css">
+    <link rel="stylesheet" href="google-reviews.css">
 </head>
 <body>
+    <!-- Promotional Modal -->
+    <div id="promo-modal" class="promo-modal">
+        <div class="promo-modal-overlay"></div>
+        <div class="promo-modal-content promo-modal-dual">
+            <button class="promo-close-btn" aria-label="Cerrar oferta">&times;</button>
+            <div class="promo-images-container">
+                <img src="neuquen-oferta-5off.jpg" alt="Oferta Neuquén - 5% OFF" loading="lazy">
+                <img src="cordoba-oferta.jpg" alt="Oferta Córdoba" loading="lazy">
+            </div>
+        </div>
+    </div>
+
     <!-- Theme Selector -->
     <div class="theme-selector" id="themeSelector">
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema de colores">
@@ -131,30 +147,92 @@
             <div class="nav-logo">
                 <a href="#home">
                     <img src="logo.png" alt="CMD Mudanzas Logo" class="nav-logo-img">
-                    <span>CMD Mudanzas</span>
                 </a>
             </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#home" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Inicio</a></li>
                     <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li class="nav-item"><a href="#servicio-vip" class="nav-link nav-link-vip">
+                        <i class="fas fa-crown"></i> VIP
+                    </a></li>
                     <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
                     <li class="nav-item"><a href="#flota" class="nav-link">Flota</a></li>
                     <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li class="nav-item">
+                        <a href="https://wa.me/5491127142006" target="_blank" rel="noopener" class="btn-primary-nav">
+                            <i class="fab fa-whatsapp"></i> Consultar
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="color-palette-selector">
+                <button class="palette-toggle" id="paletteToggle" title="Cambiar colores" aria-label="Selector de colores">
+                    <i class="fas fa-palette"></i>
+                </button>
+                <div class="palette-options" id="paletteOptions">
+                    <button class="palette-option active" data-palette="blue" title="Azul (predeterminado)">
+                        <span style="background: #1e3a8a"></span>
+                    </button>
+                    <button class="palette-option" data-palette="gray" title="Gris Oscuro">
+                        <span style="background: #2C3E50"></span>
+                    </button>
+                    <button class="palette-option" data-palette="orange" title="Naranja Vibrante">
+                        <span style="background: #FF6B35"></span>
+                    </button>
+                    <button class="palette-option" data-palette="green" title="Verde Esmeralda">
+                        <span style="background: #27AE60"></span>
+                    </button>
+                    <button class="palette-option" data-palette="purple" title="Púrpura Real">
+                        <span style="background: #9B59B6"></span>
+                    </button>
+                    <button class="palette-option" data-palette="teal" title="Turquesa">
+                        <span style="background: #16A085"></span>
+                    </button>
+                    <button class="palette-option" data-palette="red" title="Rojo Coral">
+                        <span style="background: #E74C3C"></span>
+                    </button>
+                    <button class="palette-option" data-palette="indigo" title="Índigo">
+                        <span style="background: #5843BE"></span>
+                    </button>
+                    <button class="palette-option" data-palette="rose" title="Rosa">
+                        <span style="background: #E91E63"></span>
+                    </button>
+                    <button class="palette-option" data-palette="amber" title="Ámbar">
+                        <span style="background: #F59E0B"></span>
+                    </button>
+                    <button class="palette-option" data-palette="cyan" title="Cian">
+                        <span style="background: #06B6D4"></span>
+                    </button>
+                    <button class="palette-option" data-palette="lime" title="Lima">
+                        <span style="background: #84CC16"></span>
+                    </button>
+                    <button class="palette-option" data-palette="pink" title="Rosa Fucsia">
+                        <span style="background: #EC4899"></span>
+                    </button>
+                    <button class="palette-option" data-palette="emerald" title="Esmeralda Profundo">
+                        <span style="background: #059669"></span>
+                    </button>
+                    <button class="palette-option" data-palette="violet" title="Violeta">
+                        <span style="background: #8B5CF6"></span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="WhatsApp Video 2025-12-19 at 18.18.16.mp4" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
+            <source src="hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content container">
@@ -306,6 +384,242 @@
         </div>
     </section>
 
+    <!-- Business Highlight Section -->
+    <section class="business-highlight">
+        <div class="container">
+            <div class="business-highlight-content">
+                <div class="business-highlight-info">
+                    <div class="business-badge">Premium</div>
+                    <h2>Mudanzas Empresariales</h2>
+                    <p class="business-description">
+                        Servicio premium especializado para empresas que necesitan trasladar sus oficinas, depósitos o instalaciones completas. Minimizamos el tiempo de inactividad de tu negocio con planificación detallada y ejecución impecable.
+                    </p>
+                    <ul class="business-features">
+                        <li><i class="fas fa-check-circle"></i> Planificación estratégica personalizada</li>
+                        <li><i class="fas fa-check-circle"></i> Coordinación de horarios fuera del horario laboral</li>
+                        <li><i class="fas fa-check-circle"></i> Equipamiento especializado (plataformas elevadoras)</li>
+                        <li><i class="fas fa-check-circle"></i> Equipo dedicado exclusivamente a tu proyecto</li>
+                        <li><i class="fas fa-check-circle"></i> Seguro corporativo de cobertura total</li>
+                    </ul>
+                    <a href="https://wa.me/5491127142006?text=Quiero%20información%20sobre%20Mudanzas%20Empresariales" target="_blank" rel="noopener" class="btn-business">
+                        <i class="fas fa-briefcase"></i> Solicitar Consultoría Empresarial
+                    </a>
+                </div>
+                <div class="business-highlight-visual">
+                    <div class="business-stats-grid">
+                        <div class="business-stat-card">
+                            <div class="business-stat-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="business-stat-number">200+</div>
+                            <div class="business-stat-label">Empresas Mudadas</div>
+                        </div>
+                        <div class="business-stat-card">
+                            <div class="business-stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="business-stat-number">95%</div>
+                            <div class="business-stat-label">Completadas en Tiempo</div>
+                        </div>
+                        <div class="business-stat-card">
+                            <div class="business-stat-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="business-stat-number">100%</div>
+                            <div class="business-stat-label">Cobertura de Seguro</div>
+                        </div>
+                        <div class="business-stat-card">
+                            <div class="business-stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="business-stat-number">24/7</div>
+                            <div class="business-stat-label">Soporte Dedicado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Exclusive Service -->
+    <section id="servicio-vip" class="vip-exclusive">
+        <div class="container">
+            <div class="vip-content">
+                <div class="vip-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>SERVICIO EXCLUSIVO</span>
+                </div>
+                <h2 class="vip-title">Servicio VIP Premium</h2>
+                <p class="vip-subtitle">La experiencia de mudanza más lujosa y personalizada</p>
+
+                <div class="vip-features">
+                    <div class="vip-feature">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>Atención Personalizada 24/7</h4>
+                        <p>Asistente dedicado exclusivamente a tu mudanza</p>
+                    </div>
+                    <div class="vip-feature">
+                        <i class="fas fa-box-open"></i>
+                        <h4>Embalaje Premium</h4>
+                        <p>Materiales de lujo y técnicas especializadas</p>
+                    </div>
+                    <div class="vip-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Seguro Total</h4>
+                        <p>Cobertura completa sin límite de valor</p>
+                    </div>
+                    <div class="vip-feature">
+                        <i class="fas fa-truck"></i>
+                        <h4>Flota Exclusiva</h4>
+                        <p>Vehículos premium climatizados</p>
+                    </div>
+                    <div class="vip-feature">
+                        <i class="fas fa-clock"></i>
+                        <h4>Horarios Flexibles</h4>
+                        <p>Mudanzas nocturnas o en días festivos</p>
+                    </div>
+                    <div class="vip-feature">
+                        <i class="fas fa-home"></i>
+                        <h4>Setup Completo</h4>
+                        <p>Instalación y organización en destino</p>
+                    </div>
+                </div>
+
+                <div class="vip-cta">
+                    <a href="https://wa.me/5491127142006?text=Quiero%20información%20sobre%20el%20Servicio%20VIP" target="_blank" rel="noopener" class="btn-vip">
+                        <i class="fab fa-whatsapp"></i> Solicitar Servicio VIP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section - GoodTruck -->
+    <section id="tecnologia" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnología de Vanguardia</h2>
+                <p class="section-subtitle">Lideramos la innovación en el sector de mudanzas</p>
+            </div>
+
+            <div class="technology-content">
+                <div class="technology-text">
+                    <div class="tech-logo">
+                        <h3>Powered by <strong>GoodTruck</strong></h3>
+                    </div>
+                    <p class="tech-description">
+                        En CMD Mudanzas utilizamos <strong>GoodTruck</strong>, la plataforma tecnológica líder en gestión de mudanzas en Argentina. Esta herramienta nos permite ofrecerte transparencia total y seguimiento en tiempo real de tu mudanza.
+                    </p>
+
+                    <div class="tech-features">
+                        <div class="tech-feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div>
+                                <h4>Seguimiento GPS en Tiempo Real</h4>
+                                <p>Monitorea la ubicación exacta de tus pertenencias en cualquier momento</p>
+                            </div>
+                        </div>
+                        <div class="tech-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <h4>Portal del Cliente</h4>
+                                <p>Accede a toda la información de tu mudanza desde tu celular</p>
+                            </div>
+                        </div>
+                        <div class="tech-feature">
+                            <i class="fas fa-camera"></i>
+                            <div>
+                                <h4>Fotografías y Documentación</h4>
+                                <p>Registro fotográfico completo del estado de tus muebles</p>
+                            </div>
+                        </div>
+                        <div class="tech-feature">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <div>
+                                <h4>Presupuestos Instantáneos</h4>
+                                <p>Cotización automática y transparente en minutos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://goodtruck.com.ar/portal/register?domain=cmdmudanzas.com.ar" target="_blank" rel="noopener" class="btn-tech">
+                        <i class="fas fa-user-plus"></i> Crear Cuenta Gratis
+                    </a>
+                </div>
+
+                <div class="technology-visual">
+                    <div class="tech-mockup">
+                        <i class="fas fa-truck-moving"></i>
+                        <div class="tech-stats">
+                            <div class="stat-badge">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label">Digital</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-value">24/7</span>
+                                <span class="stat-label">Acceso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="proceso" class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Cómo Trabajamos?</h2>
+                <p class="section-subtitle">4 simples pasos para tu mudanza perfecta</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Consulta</h3>
+                    <p>Contactanos por WhatsApp, teléfono o web. Te respondemos en minutos con atención personalizada.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Presupuesto</h3>
+                    <p>Evaluamos tu mudanza y te enviamos un presupuesto detallado y transparente sin compromiso.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Coordinación</h3>
+                    <p>Acordamos fecha, hora y detalles. Nuestro equipo se encarga de toda la logística.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3>Mudanza</h3>
+                    <p>Realizamos tu mudanza con profesionalismo, seguridad y seguimiento en tiempo real.</p>
+                </div>
+            </div>
+
+            <div class="process-cta">
+                <a href="https://wa.me/5491127142006" target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Comenzar Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="nosotros">
         <div class="container">
@@ -353,6 +667,146 @@
         </div>
     </section>
 
+    <!-- Google Reviews Section -->
+    <section class="reviews-carousel" id="resenas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="section-subtitle">Reseñas reales de clientes satisfechos en Google</p>
+            </div>
+
+            <div class="reviews-slider">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google" class="review-card-google-icon">
+                    <div class="review-card-header">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocKiE6aAIvVK1YKPevy5Q3ZuELV9oWZ0jwbYT-cxB34UFec0mg=s128-c0x00000000-cc-rp-mo" alt="Luciano Cordoba" class="review-card-avatar">
+                        <div class="review-card-author">
+                            <div class="review-card-name">Luciano Cordoba</div>
+                            <div class="review-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-card-text">
+                        Gracias por los servicios recomiendo no solo por la responsabilidad si no también la dedicación y compromiso con mis cosas me me dude a un 9' piso y ni un solo detalle los muebles. El personal una maravilla la calidad de todos los detalles muy recomendable.
+                    </p>
+                    <div class="review-card-date">Hace 1 mes</div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google" class="review-card-google-icon">
+                    <div class="review-card-header">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjVa69muGHTZ25VfoJqX411oOedweHHyY2-MrL2U1GGBr36I0uJOnA=s128-c0x00000000-cc-rp-mo" alt="Alejandro Ramirez" class="review-card-avatar">
+                        <div class="review-card-author">
+                            <div class="review-card-name">Alejandro Ramirez</div>
+                            <div class="review-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-card-text">
+                        Excelente servicio, mudanzas en tiempo y forma, y el personal excelente trato y cuidado con las cosas.
+                    </p>
+                    <div class="review-card-date">Hace 1 mes</div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google" class="review-card-google-icon">
+                    <div class="review-card-header">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjVygtmlL8TrVtFFktWgR-Awku7eao4EHkSlW5RE1poOa-Nt2F8=s128-c0x00000000-cc-rp-mo" alt="Michelle Denise Guzmán" class="review-card-avatar">
+                        <div class="review-card-author">
+                            <div class="review-card-name">Michelle Denise Guzmán</div>
+                            <div class="review-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-card-text">
+                        Altamente recomendable, cumplieron en tiempo y forma y cuidaron cada detalle de la mudanza. Rápidos, prolijos y muy responsables.
+                    </p>
+                    <div class="review-card-date">Hace 1 mes</div>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div class="review-card">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google" class="review-card-google-icon">
+                    <div class="review-card-header">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjWN3dSrO9aeb07xPqSO8ZoaN0nOrnyXDLA63PxQ809XTsBm0Xtd=s128-c0x00000000-cc-rp-mo" alt="Leandro Romero" class="review-card-avatar">
+                        <div class="review-card-author">
+                            <div class="review-card-name">Leandro Romero</div>
+                            <div class="review-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-card-text">
+                        Impecable trabajo como siempre en cada una de mis mudanzas, volveria a contratarlos.
+                    </p>
+                    <div class="review-card-date">Hace 1 mes</div>
+                </div>
+
+                <!-- Review Card 5 -->
+                <div class="review-card">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google" class="review-card-google-icon">
+                    <div class="review-card-header">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocJRfFwyrD50Mh2CbwGtUcTGpA5eO_k85cgqaX9U9O7q8qI52w=s128-c0x00000000-cc-rp-mo-ba2" alt="CMD Mudanzas" class="review-card-avatar">
+                        <div class="review-card-author">
+                            <div class="review-card-name">CMD Mudanzas y Bauleras Privadas</div>
+                            <div class="review-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-card-text">
+                        Contrate a esta empresa porque nos superó el trabajo y realmente son para recomendar me hicieron quedar muy bien y trabajaron como profesionales.
+                    </p>
+                    <div class="review-card-date">Hace 8 meses</div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button class="review-nav review-nav-prev" aria-label="Reseña anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="review-nav review-nav-next" aria-label="Siguiente reseña">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="review-dots"></div>
+
+            <!-- Ver más en Google -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://maps.google.com/?cid=5053437360425719522" target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fab fa-google"></i> Ver todas las reseñas en Google
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Fleet Section -->
     <section class="fleet" id="flota">
         <div class="container">
@@ -381,6 +835,157 @@
                     <h3>Camión Extra Grande</h3>
                     <p>Mudanzas corporativas y volúmenes importantes</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal de Clientes Section -->
+    <section class="portal-cta">
+        <div class="container">
+            <div class="portal-cta-content">
+                <div class="portal-cta-info">
+                    <h2 class="section-title">Portal de Clientes CMD</h2>
+                    <p class="portal-subtitle">
+                        Accede a tu panel personalizado para gestionar tu mudanza en tiempo real con total transparencia y control.
+                    </p>
+
+                    <div class="portal-benefits-grid">
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Seguimiento GPS</h4>
+                                <p>Ubicación en tiempo real de tus pertenencias</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div>
+                                <h4>Registro Fotográfico</h4>
+                                <p>Fotos del estado de tus muebles antes y después</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div>
+                                <h4>Documentación Digital</h4>
+                                <p>Facturas, contratos y comprobantes online</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div>
+                                <h4>Notificaciones</h4>
+                                <p>Alertas automáticas de cada etapa del proceso</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4>Chat Directo</h4>
+                                <p>Comunicación instantánea con tu coordinador</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-benefit-item">
+                            <div class="portal-benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Seguridad Total</h4>
+                                <p>Datos protegidos con encriptación de nivel bancario</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portal-cta-buttons">
+                        <a href="https://goodtruck.com.ar/portal/register?domain=cmdmudanzas.com.ar" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Crear Cuenta Gratis
+                        </a>
+                        <a href="https://goodtruck.com.ar/portal/login?domain=cmdmudanzas.com.ar" target="_blank" rel="noopener" class="btn btn-secondary-alt">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portal-visual">
+                    <div class="portal-images-stack">
+                        <img src="images/portal-screenshot-1.jpg" alt="Portal CMD - Dashboard" class="portal-img active" loading="lazy">
+                        <img src="images/portal-screenshot-2.jpg" alt="Portal CMD - Seguimiento" class="portal-img" loading="lazy">
+                    </div>
+                    <div class="portal-badge-floating">
+                        <i class="fas fa-lock"></i>
+                        <span>100% Seguro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Factores de Precios Section -->
+    <section class="pricing-factors">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Cómo Calculamos Tu Presupuesto?</h2>
+                <p class="section-subtitle">Precio justo y transparente basado en 4 factores clave</p>
+            </div>
+
+            <div class="factors-grid">
+                <div class="factor-card">
+                    <div class="factor-number">1</div>
+                    <div class="factor-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>Volumen</h3>
+                    <p>Cantidad de metros cúbicos a trasladar. Evaluamos el tamaño y cantidad de tus pertenencias para asignar el vehículo adecuado.</p>
+                </div>
+
+                <div class="factor-card">
+                    <div class="factor-number">2</div>
+                    <div class="factor-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Distancia</h3>
+                    <p>Kilómetros entre origen y destino. Incluye peajes, combustible y tiempo de traslado del equipo.</p>
+                </div>
+
+                <div class="factor-card">
+                    <div class="factor-number">3</div>
+                    <div class="factor-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Servicios Adicionales</h3>
+                    <p>Embalaje, desmontaje, limpieza, elevación con soga o plataforma. Cada servicio se cotiza según tus necesidades.</p>
+                </div>
+
+                <div class="factor-card">
+                    <div class="factor-number">4</div>
+                    <div class="factor-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Accesibilidad</h3>
+                    <p>Pisos, ascensor disponible, restricciones de horario. Estos factores afectan el tiempo y recursos necesarios.</p>
+                </div>
+            </div>
+
+            <div class="pricing-cta">
+                <p class="pricing-cta-text">Solicita tu presupuesto personalizado sin compromiso</p>
+                <a href="https://wa.me/5491127142006?text=Quiero%20un%20presupuesto%20personalizado" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                    <i class="fab fa-whatsapp"></i> Cotizar Mi Mudanza Ahora
+                </a>
             </div>
         </div>
     </section>
@@ -699,5 +1304,6 @@ Si te preguntan por precios específicos, explica que depende de: volumen, dista
         };
     </script>
     <script src="script.js"></script>
+    <script src="google-reviews.js"></script>
 </body>
 </html>

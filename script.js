@@ -11,6 +11,9 @@ let conversationHistory = [];
 const themeToggle = document.getElementById('themeToggle');
 const themeOptions = document.getElementById('themeOptions');
 const themeOptionButtons = document.querySelectorAll('.theme-option');
+const paletteToggle = document.getElementById('paletteToggle');
+const paletteOptions = document.getElementById('paletteOptions');
+const paletteOptionButtons = document.querySelectorAll('.palette-option');
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -60,6 +63,58 @@ themeOptionButtons.forEach(button => {
 });
 
 // ========================================
+// Color Palette Management
+// ========================================
+
+// Load saved palette
+const savedPalette = localStorage.getItem('colorPalette') || 'blue';
+document.documentElement.setAttribute('data-palette', savedPalette);
+
+// Update active palette button
+paletteOptionButtons.forEach(btn => {
+    if (btn.getAttribute('data-palette') === savedPalette) {
+        btn.classList.add('active');
+    }
+});
+
+// Toggle palette options
+if (paletteToggle) {
+    paletteToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        paletteOptions.classList.toggle('active');
+    });
+}
+
+// Close palette options when clicking outside
+document.addEventListener('click', (e) => {
+    if (paletteOptions && !paletteToggle.contains(e.target) && !paletteOptions.contains(e.target)) {
+        paletteOptions.classList.remove('active');
+    }
+});
+
+// Palette selection
+paletteOptionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const palette = button.getAttribute('data-palette');
+
+        // Update active state
+        paletteOptionButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Apply palette
+        document.documentElement.setAttribute('data-palette', palette);
+        localStorage.setItem('colorPalette', palette);
+        paletteOptions.classList.remove('active');
+
+        // Visual feedback
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 200);
+    });
+});
+
+// ========================================
 // Navigation
 // ========================================
 
@@ -70,12 +125,35 @@ navToggle.addEventListener('click', () => {
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on a nav link
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+
+        // Close mobile menu for all links
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
+
+        // Only handle internal anchor links for smooth scroll
+        if (href && href.startsWith('#') && href.length > 1) {
+            e.preventDefault();
+
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                // Smooth scroll to section
+                const headerOffset = 80;
+                const elementPosition = targetSection.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
     });
 });
 
@@ -285,23 +363,36 @@ contactForm.addEventListener('submit', async (e) => {
 });
 
 // ========================================
-// Smooth Scroll
+// Smooth Scroll (for all anchor links except nav links)
 // ========================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
+// Handle all anchor links (including hero buttons, footer links, etc.)
+// Note: nav links are handled separately above to avoid duplicate event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]:not(.nav-link)').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+            // Only handle internal anchor links
+            if (href && href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    // Smooth scroll to section
+                    const headerOffset = 80;
+                    const elementPosition = targetSection.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     });
 });
 
@@ -464,6 +555,106 @@ if ('loading' in HTMLImageElement.prototype) {
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
     document.body.appendChild(script);
+}
+
+// ========================================
+// Promo Modal Management
+// ========================================
+
+const promoModal = document.getElementById('promo-modal');
+const promoCloseBtn = document.querySelector('.promo-close-btn');
+const promoOverlay = document.querySelector('.promo-modal-overlay');
+
+// Function to show promo modal
+function showPromoModal() {
+    if (promoModal) {
+        promoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Function to close promo modal
+function closePromoModal() {
+    if (promoModal) {
+        promoModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Show modal after 500ms (optional - commented out by default)
+// setTimeout(showPromoModal, 500);
+
+// Auto-close after 7.5 seconds (optional)
+// setTimeout(closePromoModal, 7500);
+
+// Close button event
+if (promoCloseBtn) {
+    promoCloseBtn.addEventListener('click', closePromoModal);
+}
+
+// Close on overlay click
+if (promoOverlay) {
+    promoOverlay.addEventListener('click', closePromoModal);
+}
+
+// Close on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && promoModal && promoModal.classList.contains('active')) {
+        closePromoModal();
+    }
+});
+
+// ========================================
+// Portal Images Auto-Rotation
+// ========================================
+
+let portalRotateInterval;
+let currentPortalImage = 0;
+
+function rotatePortalImages() {
+    const portalImages = document.querySelectorAll('.portal-img');
+
+    if (portalImages.length > 0) {
+        // Remove active class from all images
+        portalImages.forEach(img => img.classList.remove('active'));
+
+        // Move to next image
+        currentPortalImage = (currentPortalImage + 1) % portalImages.length;
+
+        // Add active class to current image
+        portalImages[currentPortalImage].classList.add('active');
+    }
+}
+
+function initPortalRotation() {
+    const portalImages = document.querySelectorAll('.portal-img');
+
+    if (portalImages.length > 1) {
+        // Start auto-rotation every 5 seconds
+        portalRotateInterval = setInterval(rotatePortalImages, 5000);
+
+        // Manual click to change image
+        const portalStack = document.querySelector('.portal-images-stack');
+        if (portalStack) {
+            portalStack.addEventListener('click', () => {
+                // Clear auto-rotation
+                clearInterval(portalRotateInterval);
+
+                // Rotate image
+                rotatePortalImages();
+
+                // Restart auto-rotation
+                portalRotateInterval = setInterval(rotatePortalImages, 5000);
+            });
+        }
+    }
+}
+
+// Initialize portal rotation when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortalRotation);
+} else {
+    initPortalRotation();
 }
 
 // ========================================
