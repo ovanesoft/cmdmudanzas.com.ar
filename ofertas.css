@@ -1,0 +1,309 @@
+/* ========================================
+   PÁGINA DE OFERTAS RELÁMPAGO
+   ======================================== */
+
+/* Badge personalizado para ofertas (reutiliza hero del index) */
+.ofertas-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.ofertas-badge i {
+    font-size: 1.2rem;
+    animation: bolt 1.5s ease-in-out infinite;
+}
+
+@keyframes bolt {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Ofertas Section */
+.ofertas-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--light-color);
+}
+
+.ofertas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Oferta Card */
+.oferta-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+}
+
+.oferta-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.oferta-badge-featured,
+.oferta-badge-new {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.oferta-badge-featured {
+    background: linear-gradient(135deg, #FF6B35, #F7931E);
+    color: var(--white);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.oferta-badge-new {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD);
+    color: var(--white);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.oferta-image-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background: var(--light-color);
+}
+
+.oferta-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.oferta-card:hover .oferta-image {
+    transform: scale(1.05);
+}
+
+.oferta-content {
+    padding: var(--spacing-lg);
+}
+
+.oferta-content h3 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.oferta-price {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-md);
+}
+
+.price-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.price-detail {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-top: 0.25rem;
+}
+
+.oferta-discount {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--spacing-sm);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(69, 160, 73, 0.1));
+    border-left: 4px solid var(--success);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.oferta-discount i {
+    color: var(--success);
+    font-size: 1.25rem;
+}
+
+.oferta-discount-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+}
+
+.oferta-discount-large i {
+    font-size: 2.5rem;
+}
+
+.oferta-description {
+    font-size: 1.125rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.oferta-features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.oferta-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--light-color);
+    color: var(--dark-color);
+}
+
+.oferta-features li:last-child {
+    border-bottom: none;
+}
+
+.oferta-features i {
+    color: var(--success);
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.oferta-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.oferta-actions .btn {
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* CTA Final */
+.ofertas-cta {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-xl);
+}
+
+.ofertas-cta h2 {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.ofertas-cta p {
+    font-size: 1.25rem;
+    color: var(--gray);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ofertas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .oferta-image-container {
+        height: 300px;
+    }
+
+    .oferta-content h3 {
+        font-size: 1.75rem;
+    }
+
+    .price-amount {
+        font-size: 2rem;
+    }
+
+    .oferta-actions {
+        flex-direction: column;
+    }
+
+    .oferta-actions .btn {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .ofertas-cta h2 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .oferta-badge-featured,
+    .oferta-badge-new {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .price-amount {
+        font-size: 1.75rem;
+    }
+
+    .oferta-discount-large {
+        font-size: 1.5rem;
+    }
+
+    .oferta-discount-large i {
+        font-size: 2rem;
+    }
+}
