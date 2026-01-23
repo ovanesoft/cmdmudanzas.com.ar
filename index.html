@@ -87,16 +87,21 @@
 
     <link rel="stylesheet" href="styles-modern.css">
     <link rel="stylesheet" href="google-reviews.css">
+
+    <!-- Google Maps Places API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiiiYShByY7he2SeXwh9DMKY5FfMfg3o4&libraries=places&callback=initGoogleReviews" async defer></script>
 </head>
 <body>
     <!-- Promotional Modal -->
     <div id="promo-modal" class="promo-modal">
         <div class="promo-modal-overlay"></div>
         <div class="promo-modal-content promo-modal-dual">
-            <button class="promo-close-btn" aria-label="Cerrar oferta">&times;</button>
+            <button class="promo-close-btn" aria-label="Cerrar promoción">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="promo-images-container">
-                <img src="neuquen-oferta-5off.jpg" alt="Oferta Neuquén - 5% OFF" loading="lazy">
-                <img src="cordoba-oferta.jpg" alt="Oferta Córdoba" loading="lazy">
+                <img src="neuquen-oferta-5off.jpg" alt="Super Oferta Neuquén - 5% OFF" class="promo-image">
+                <img src="cordoba-oferta.jpg" alt="Super Oferta Córdoba - 5% OFF" class="promo-image">
             </div>
         </div>
     </div>
@@ -160,15 +165,25 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#home" class="nav-link">Inicio</a></li>
                     <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li class="nav-item"><a href="mudanzas-empresariales.html" class="nav-link">Empresas</a></li>
                     <li class="nav-item"><a href="#servicio-vip" class="nav-link nav-link-vip">
                         <i class="fas fa-crown"></i> VIP
                     </a></li>
                     <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
                     <li class="nav-item"><a href="#flota" class="nav-link">Flota</a></li>
+                    <li class="nav-item"><a href="ofertas.html" class="nav-link">Ofertas</a></li>
                     <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
                     <li class="nav-item">
                         <a href="https://wa.me/5491127142006" target="_blank" rel="noopener" class="btn-primary-nav">
                             <i class="fab fa-whatsapp"></i> Consultar
+                        </a>
+                    </li>
+                    <li class="nav-item-auth">
+                        <a href="https://goodtruck.com.ar/portal/register?domain=cmdmudanzas.com.ar" target="_blank" rel="noopener" class="nav-link nav-link-register">
+                            <i class="fas fa-user-plus"></i> Registrarse
+                        </a>
+                        <a href="https://goodtruck.com.ar/portal/login?domain=cmdmudanzas.com.ar" target="_blank" rel="noopener" class="nav-link nav-link-login">
+                            <i class="fas fa-sign-in-alt"></i> Ingresar
                         </a>
                     </li>
                 </ul>
@@ -182,47 +197,47 @@
                     <button class="palette-option active" data-palette="blue" title="Azul (predeterminado)">
                         <span style="background: #1e3a8a"></span>
                     </button>
-                    <button class="palette-option" data-palette="gray" title="Gris Oscuro">
-                        <span style="background: #2C3E50"></span>
-                    </button>
-                    <button class="palette-option" data-palette="orange" title="Naranja Vibrante">
+                    <button class="palette-option" data-palette="orange" title="Naranja">
                         <span style="background: #FF6B35"></span>
                     </button>
-                    <button class="palette-option" data-palette="green" title="Verde Esmeralda">
+                    <button class="palette-option" data-palette="orangelight" title="Naranja claro">
+                        <span style="background: #FFA07A"></span>
+                    </button>
+                    <button class="palette-option" data-palette="orangedark" title="Naranja oscuro">
+                        <span style="background: #E8590C"></span>
+                    </button>
+                    <button class="palette-option" data-palette="orangebright" title="Naranja brillante">
+                        <span style="background: #FF8500"></span>
+                    </button>
+                    <button class="palette-option" data-palette="orangesoft" title="Naranja suave">
+                        <span style="background: #FFB366"></span>
+                    </button>
+                    <button class="palette-option" data-palette="green" title="Verde confianza">
                         <span style="background: #27AE60"></span>
                     </button>
-                    <button class="palette-option" data-palette="purple" title="Púrpura Real">
+                    <button class="palette-option" data-palette="purple" title="Púrpura moderno">
                         <span style="background: #9B59B6"></span>
                     </button>
-                    <button class="palette-option" data-palette="teal" title="Turquesa">
+                    <button class="palette-option" data-palette="teal" title="Turquesa fresco">
                         <span style="background: #16A085"></span>
                     </button>
-                    <button class="palette-option" data-palette="red" title="Rojo Coral">
+                    <button class="palette-option" data-palette="red" title="Rojo energético">
                         <span style="background: #E74C3C"></span>
                     </button>
-                    <button class="palette-option" data-palette="indigo" title="Índigo">
-                        <span style="background: #5843BE"></span>
-                    </button>
-                    <button class="palette-option" data-palette="rose" title="Rosa">
+                    <button class="palette-option" data-palette="pink" title="Rosa vibrante">
                         <span style="background: #E91E63"></span>
                     </button>
-                    <button class="palette-option" data-palette="amber" title="Ámbar">
-                        <span style="background: #F59E0B"></span>
+                    <button class="palette-option" data-palette="black" title="Negro elegante">
+                        <span style="background: #2C3E50"></span>
                     </button>
-                    <button class="palette-option" data-palette="cyan" title="Cian">
-                        <span style="background: #06B6D4"></span>
+                    <button class="palette-option" data-palette="gray" title="Gris moderno">
+                        <span style="background: #7F8C8D"></span>
                     </button>
-                    <button class="palette-option" data-palette="lime" title="Lima">
-                        <span style="background: #84CC16"></span>
+                    <button class="palette-option" data-palette="lightgray" title="Gris claro">
+                        <span style="background: #95A5A6"></span>
                     </button>
-                    <button class="palette-option" data-palette="pink" title="Rosa Fucsia">
-                        <span style="background: #EC4899"></span>
-                    </button>
-                    <button class="palette-option" data-palette="emerald" title="Esmeralda Profundo">
-                        <span style="background: #059669"></span>
-                    </button>
-                    <button class="palette-option" data-palette="violet" title="Violeta">
-                        <span style="background: #8B5CF6"></span>
+                    <button class="palette-option" data-palette="darkgray" title="Gris oscuro">
+                        <span style="background: #566573"></span>
                     </button>
                 </div>
             </div>
@@ -623,43 +638,62 @@
     <!-- About Section -->
     <section class="about" id="nosotros">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Sobre Nosotros</h2>
-                    <p class="about-description">
-                        En <strong>CMD Mudanzas</strong> somos una empresa de mudanzas y logística comprometida con brindar el mejor servicio a nuestros clientes. Nuestro objetivo principal es cuidar tu mercadería y pertenencias con el máximo profesionalismo y seguridad.
-                    </p>
-                    <p class="about-description">
-                        Contamos con años de experiencia en el rubro y un equipo altamente capacitado que entiende la importancia de cada uno de tus objetos. No nos limitamos a transportar cajas, sino que nos encargamos de todo el proceso para que no tengas que preocuparte por nada.
-                    </p>
-                    <div class="about-values">
-                        <div class="value-item">
-                            <h4>Profesionalismo</h4>
-                            <p>Personal capacitado y equipamiento de primera calidad</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Seguridad</h4>
-                            <p>Protección integral de tus pertenencias durante todo el traslado</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Confianza</h4>
-                            <p>Miles de clientes satisfechos respaldan nuestro servicio</p>
-                        </div>
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <div class="video-container video-vertical">
+                        <video id="aboutVideo" controls playsinline preload="metadata" loop muted webkit-playsinline>
+                            <source src="images/video-institucional.mp4" type="video/mp4">
+                            Tu navegador no soporta el video HTML5.
+                        </video>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">1000+</span>
-                            <span class="stat-label">Mudanzas Realizadas</span>
+                <div class="about-content">
+                    <div class="about-badge-inline">
+                        <span class="badge-number">+10</span>
+                        <span class="badge-text">Años de Experiencia</span>
+                    </div>
+                    <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+                    <p class="about-text">En <strong>CMD Mudanzas</strong> entendemos que mudarse es un momento importante en tu vida. Por eso, cuidamos cada detalle con compromiso, cuidado y profesionalismo para hacer de tu experiencia algo seguro, ágil y sin estrés.</p>
+
+                    <div class="features-list">
+                        <div class="feature-box">
+                            <div class="feature-icon-box">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Experiencia Comprobada</h4>
+                                <p>Más de 10 años realizando mudanzas exitosas en todo el país.</p>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Clientes Satisfechos</span>
+
+                        <div class="feature-box">
+                            <div class="feature-icon-box">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Personal Capacitado</h4>
+                                <p>Equipo profesional entrenado en técnicas de carga, transporte y cuidado.</p>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Atención al Cliente</span>
+
+                        <div class="feature-box">
+                            <div class="feature-icon-box">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Atención Personalizada</h4>
+                                <p>Te acompañamos en cada paso del proceso, desde la cotización hasta la entrega.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box">
+                            <div class="feature-icon-box">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Seguros Incluidos</h4>
+                                <p>Todos nuestros servicios cuentan con cobertura de seguros.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -674,6 +708,9 @@
                 <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
                 <p class="section-subtitle">Reseñas reales de clientes satisfechos en Google</p>
             </div>
+
+            <!-- Google Reviews Container (API) -->
+            <div id="google-reviews-container"></div>
 
             <div class="reviews-slider">
                 <!-- Review Card 1 -->
@@ -803,6 +840,84 @@
                 <a href="https://maps.google.com/?cid=5053437360425719522" target="_blank" rel="noopener" class="btn btn-primary">
                     <i class="fab fa-google"></i> Ver todas las reseñas en Google
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descuento Heroes Section -->
+    <section id="heroes" class="heroes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gracias por su Servicio</h2>
+                <p class="section-subtitle">Dedicado a quienes sirven con vocación y corazón</p>
+            </div>
+
+            <!-- Imagen de Servidores Públicos -->
+            <div class="heroes-banner">
+                <img src="images/servidores-publicos.png" alt="Profesionales de Servicio Público" class="heroes-banner-img">
+            </div>
+
+            <div class="heroes-content">
+                <div class="heroes-message">
+                    <p>
+                        Estamos profundamente agradecidos con el personal de <strong>Fuerzas Armadas, Fuerzas de Seguridad, Bomberos, Médicos y Docentes</strong>,
+                        quienes día a día prestan servicios invaluables con vocación y dedicación desde el corazón.
+                    </p>
+                    <p>
+                        Valoramos profundamente su compromiso con nuestra sociedad y, como reconocimiento a su labor,
+                        les ofrecemos un <strong>beneficio permanente del 10% de descuento</strong> en todos nuestros servicios de mudanza.
+                    </p>
+                    <p class="heroes-cta-text">
+                        Además, instamos a otras empresas a sumarse a estas acciones para honrar a quienes nos cuidan,
+                        protegen, educan y salvan vidas cada día.
+                    </p>
+                </div>
+
+                <div class="heroes-categories">
+                    <div class="hero-category">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Fuerzas Armadas y Seguridad</h3>
+                    </div>
+                    <div class="hero-category">
+                        <i class="fas fa-fire-extinguisher"></i>
+                        <h3>Bomberos</h3>
+                    </div>
+                    <div class="hero-category">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Personal Médico</h3>
+                    </div>
+                    <div class="hero-category">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Docentes</h3>
+                    </div>
+                </div>
+
+                <div class="heroes-discount-box">
+                    <div class="discount-badge">
+                        <span class="discount-percent">10%</span>
+                        <span class="discount-text">DESCUENTO<br>PERMANENTE</span>
+                    </div>
+                    <div class="discount-info">
+                        <h3>¿Cómo acceder al beneficio?</h3>
+                        <ol>
+                            <li>Registrate en nuestra plataforma haciendo clic en el botón de abajo</li>
+                            <li>Completá tus datos personales y laborales verificables</li>
+                            <li>Nuestro equipo validará tu información en 24-48 horas</li>
+                            <li>Una vez aprobado, el descuento del 10% se aplicará automáticamente en todos tus presupuestos</li>
+                        </ol>
+                        <p class="note"><i class="fas fa-info-circle"></i> <strong>Nota:</strong> El descuento se aplica sobre cualquier servicio de mudanza que contrates con nosotros.</p>
+                    </div>
+                </div>
+
+                <div class="heroes-cta">
+                    <a href="https://wa.me/5491127142006?text=Hola!%20Quiero%20registrarme%20para%20el%20descuento%20del%2010%25%20para%20profesionales%20de%20servicio.%20Soy%20%5Btu%20profesi%C3%B3n%5D"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-primary btn-lg">
+                        <i class="fab fa-whatsapp"></i> Registrarme para el Descuento
+                    </a>
+                    <p class="small-text">Te contactaremos para validar tus datos y activar tu beneficio</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1303,7 +1418,11 @@ Debes ser:
 Si te preguntan por precios específicos, explica que depende de: volumen, distancia, servicios adicionales y accesibilidad. Siempre invita a contactar para un presupuesto personalizado.`
         };
     </script>
-    <script src="script.js"></script>
+    <script>
+        // Configuración de Google Reviews para CMD Mudanzas
+        const CMD_PLACE_ID = 'ChIJv7PkEUe_vJURAgTi_Rr6W0o'; // Place ID de CMD Mudanzas
+    </script>
     <script src="google-reviews.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

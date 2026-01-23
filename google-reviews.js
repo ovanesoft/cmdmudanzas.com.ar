@@ -2,7 +2,7 @@
 // Gestiona la obtención y cache de reseñas de Google Places API
 
 const GoogleReviewsManager = {
-    placeId: 'ChIJLwTHOPWKGy8R4tbcSoFqIUY',
+    placeId: 'ChIJv7PkEUe_vJURAgTi_Rr6W0o', // Place ID de CMD Mudanzas
     apiKey: 'AIzaSyDiiiYShByY7he2SeXwh9DMKY5FfMfg3o4',
     cacheFile: 'data/google-reviews-cache.json',
     cacheExpiry: 24 * 60 * 60 * 1000, // 24 horas en milisegundos

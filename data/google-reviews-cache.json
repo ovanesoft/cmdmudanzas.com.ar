@@ -1,0 +1,69 @@
+{
+  "timestamp": 1766899006323,
+  "name": "Mi Mudanza",
+  "rating": 5,
+  "totalReviews": 11,
+  "googleUrl": "https://maps.google.com/?cid=5053437360425719522",
+  "reviews": [
+    {
+      "author_name": "CMD Mudanzas y Bauleras Privadas",
+      "author_url": "https://www.google.com/maps/contrib/112801016387938050173/reviews",
+      "language": "es",
+      "original_language": "es",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJRfFwyrD50Mh2CbwGtUcTGpA5eO_k85cgqaX9U9O7q8qI52w=s128-c0x00000000-cc-rp-mo-ba2",
+      "rating": 5,
+      "relative_time_description": "Hace 6 meses",
+      "text": "Contrate a esta empresa porque nos superó el trabajo y realmente son para recomendar me hicieron quedar muy bien y trabajaron como profesionales",
+      "time": 1749507600,
+      "translated": false
+    },
+    {
+      "author_name": "Luciano Cordoba",
+      "author_url": "https://www.google.com/maps/contrib/112749757936604201750/reviews",
+      "language": "es",
+      "original_language": "es",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKiE6aAIvVK1YKPevy5Q3ZuELV9oWZ0jwbYT-cxB34UFec0mg=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "en la última semana",
+      "text": "Gracias por los servicios recomiendo no solo por la responsabilidad si no también la dedicación y compromiso con mis cosas me me dude a un 9' piso y ni un solo detalle los muebles.\nEl personal una maravilla la calidad de todos los detalles muy recomendable.",
+      "time": 1766862531,
+      "translated": false
+    },
+    {
+      "author_name": "Alejandro Ramirez",
+      "author_url": "https://www.google.com/maps/contrib/114294777029796099998/reviews",
+      "language": "es",
+      "original_language": "es",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVa69muGHTZ25VfoJqX411oOedweHHyY2-MrL2U1GGBr36I0uJOnA=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "en la última semana",
+      "text": "Excelente servicio, mudanzas en tiempo y forma, y el personal excelente trato y cuidado con las cosas.",
+      "time": 1766862417,
+      "translated": false
+    },
+    {
+      "author_name": "Michelle Denise Guzmán",
+      "author_url": "https://www.google.com/maps/contrib/101710621253232719153/reviews",
+      "language": "es",
+      "original_language": "es",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVygtmlL8TrVtFFktWgR-Awku7eao4EHkSlW5RE1poOa-Nt2F8=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "en la última semana",
+      "text": "Altamente recomendable, cumplieron en tiempo y forma y cuidaron cada detalle de la mudanza.Rápidos, prolijos y muy responsables.",
+      "time": 1766862303,
+      "translated": false
+    },
+    {
+      "author_name": "Leandro Romero",
+      "author_url": "https://www.google.com/maps/contrib/111361231319912499797/reviews",
+      "language": "es",
+      "original_language": "es",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWN3dSrO9aeb07xPqSO8ZoaN0nOrnyXDLA63PxQ809XTsBm0Xtd=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "en la última semana",
+      "text": "Impecable trabajo como siempre en cada una de mis mudanzas, volveria a contratarlos.",
+      "time": 1766862249,
+      "translated": false
+    }
+  ]
+}
