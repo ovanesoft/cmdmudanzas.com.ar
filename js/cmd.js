@@ -254,7 +254,7 @@
       };
 
       var lines = [
-        '*Nueva consulta de mudanza — cmdmudanzas.com*',
+        '*Nueva consulta de mudanza — cmdmudanzas.com.ar*',
         '',
         '*Nombre:* ' + val('f-nombre'),
         '*Teléfono:* ' + val('f-tel')
