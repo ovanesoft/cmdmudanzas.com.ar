@@ -1,21 +1,8 @@
-# Dependencies
-node_modules/
-
-# Environment variables
-.env
-.env.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Editor directories
-.vscode/
-.idea/
-
-# Vercel
+# Material de trabajo que no forma parte del sitio publicado
+*.mp4
+*.MOV
+*.mov
+MIMUDANZA/
 .vercel
+.DS_Store
+node_modules/
