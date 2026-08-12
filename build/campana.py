@@ -58,16 +58,41 @@ def cargar_localidades():
     return locs
 
 
-def keywords_localidad(nombre, tipo):
+def keywords_localidad(nombre, tipo, largo_distancia=True, extra=None):
+    """largo_distancia=False para Buenos Aires y CABA: no tiene sentido
+    'mudanza de buenos aires a buenos aires', y esas claves además chocan
+    con la campaña Interior."""
     n = sin_tildes(nombre)
     kws = [f'mudanzas {n}', f'mudanzas en {n}', f'empresa de mudanzas {n}',
            f'presupuesto mudanza {n}']
     if tipo == 'provincia':
-        # intención de larga distancia: la búsqueda sale del origen
-        kws += [f'mudanzas a {n}', f'mudanza de buenos aires a {n}']
+        if largo_distancia:
+            # la búsqueda de larga distancia sale del origen, no del destino
+            kws += [f'mudanzas a {n}', f'mudanza de buenos aires a {n}']
     else:
         kws += [f'fletes {n}']
-    return kws
+    return kws + list(extra or [])
+
+
+# Cómo busca la gente en realidad: sinónimos de alto volumen que la
+# plantilla por nombre no genera sola.
+SINONIMOS = {
+    'caba': ['mudanzas capital federal', 'mudanzas en capital federal',
+             'mudanzas ciudad de buenos aires', 'empresa de mudanzas capital federal',
+             'mudanzas capital'],
+    'buenos-aires': ['mudanzas gran buenos aires', 'mudanzas gba',
+                     'mudanzas zona norte', 'mudanzas zona oeste', 'mudanzas zona sur',
+                     'empresa de mudanzas gba'],
+    'santa-fe': ['mudanzas rosario', 'mudanzas en rosario', 'empresa de mudanzas rosario'],
+    'rio-negro': ['mudanzas bariloche', 'mudanzas en bariloche'],
+    'tucuman': ['mudanzas san miguel de tucuman'],
+    'chaco': ['mudanzas resistencia'],
+    'misiones': ['mudanzas posadas', 'mudanzas iguazu'],
+    'tierra-del-fuego': ['mudanzas ushuaia', 'mudanzas rio grande'],
+    'chubut': ['mudanzas comodoro rivadavia', 'mudanzas puerto madryn', 'mudanzas trelew'],
+    'santa-cruz': ['mudanzas rio gallegos', 'mudanzas el calafate'],
+    'neuquen': ['mudanzas san martin de los andes', 'mudanzas anelo'],
+}
 
 
 def titulos(nombre, tipo, base, propios, err, ctx):
@@ -138,6 +163,20 @@ def main():
                     'Criterion Type': 'Campaign Negative Phrase',
                     'Keyword Status': 'Enabled'})
 
+        # --- negativas cruzadas ---
+        # Sin esto, "mudanza de buenos aires a córdoba" puede caer en la campaña
+        # de Provincia por la clave de frase "mudanzas buenos aires", y el usuario
+        # aterriza en la página genérica en vez de la de Córdoba.
+        # Bloqueando el nombre de cada provincia del interior en CABA y Provincia,
+        # esa búsqueda solo puede servirla la campaña Interior.
+        if clave in ('caba', 'provincia'):
+            interior = [l for l in locs if l['tipo'] == 'provincia'
+                        and l['slug'] not in ('caba', 'buenos-aires')]
+            for l in interior:
+                fila(**{'Campaign': cn, 'Keyword': sin_tildes(l['nombre']),
+                        'Criterion Type': 'Campaign Negative Phrase',
+                        'Keyword Status': 'Enabled'})
+
         # --- grupos geográficos ---
         excl = set(camp.get('excluir_slugs', []))
         items = [l for l in locs if l['tipo'] in camp['tipos'] and l['slug'] not in excl]
@@ -154,7 +193,10 @@ def main():
             fila(**{'Campaign': cn, 'Ad Group': gn,
                     'Max CPC': cfg['cpc_max'], 'Ad Group Status': 'Enabled'})
 
-            for kw in keywords_localidad(nombre, tipo):
+            # Buenos Aires y CABA no llevan claves de larga distancia: chocarían
+            # con la campaña Interior por la propia palabra "buenos aires".
+            ld = slug not in ('buenos-aires', 'caba')
+            for kw in keywords_localidad(nombre, tipo, ld, SINONIMOS.get(slug)):
                 for t in ('Phrase', 'Exact'):
                     fila(**{'Campaign': cn, 'Ad Group': gn, 'Keyword': kw,
                             'Criterion Type': t, 'Keyword Status': 'Enabled'})
