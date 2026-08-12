@@ -13,14 +13,20 @@
 | `www.cmdmudanzas.com` | — | `1d2ff77bae0beab5.vercel-dns-017.com` |
 | `cmdmudanzas.com.ar` | **ns1.vercel-dns.com / ns2.vercel-dns.com** | `216.150.1.129`, `216.150.16.1` |
 
-> ⚠️ **La zona DNS del dominio principal está en Wix, no en Vercel.**
-> Despublicar el sitio de Wix no debería tocarla, pero *desconectar el dominio*
-> o *eliminar el sitio* sí la rompe, y con ella se cae `cmdmudanzas.com` entero.
-> Nunca tocar el dominio desde el panel de Wix sin migrar antes la zona.
+> **La zona DNS del dominio principal está en Wix, no en Vercel.**
 >
-> **Pendiente recomendado:** migrar el DNS de `.com` a Vercel para que la
-> infraestructura quede en un solo lugar y no dependa de una cuenta de Wix
-> que ya no se paga.
+> Decisión tomada (2026-08-12): se deja así a propósito. Wix queda únicamente
+> como servidor DNS, sin alojar nada. Migrar la zona obligaría a reconfigurar
+> todos los registros por un beneficio marginal.
+>
+> **Verificado tras despublicar el sitio de Wix:** la zona DNS quedó intacta y
+> el dominio sigue resolviendo con normalidad.
+>
+> ⚠️ **Dos precauciones, por la dependencia que queda:**
+> 1. **No eliminar el sitio de Wix.** Dejarlo despublicado. Eliminarlo puede
+>    llevarse la zona DNS y con ella `cmdmudanzas.com` entero.
+> 2. **Si alguna vez se cierra esa cuenta de Wix**, migrar primero los
+>    nameservers a Vercel y recién después cerrarla.
 
 ## 2. Qué sirve cada URL
 
@@ -43,8 +49,8 @@ apex, hay que cambiarlo en Vercel y dar vuelta el canonical del HTML.
 | 2 | El canonical apuntaba a `cmdmudanzas.com.ar` — dominio equivocado **y** URL que redirige | ✅ Resuelto: apunta a `https://www.cmdmudanzas.com/` |
 | 3 | `sitemap.xml` y `robots.txt` declaraban el dominio viejo | ✅ Resuelto |
 | 4 | El mensaje de WhatsApp del cotizador decía `cmdmudanzas.com.ar` | ✅ Resuelto |
-| 5 | Sitio de Wix (`perezledesmamariu.wixsite.com/cmdmudanzas`) vivo, indexable y con canonical propio | 🔻 Pablo lo despublica |
-| 6 | DNS del `.com` alojado en Wix | ⏳ Pendiente: migrar a Vercel |
+| 5 | Sitio de Wix (`perezledesmamariu.wixsite.com/cmdmudanzas`) vivo, indexable y con canonical propio | ✅ Resuelto: despublicado el 2026-08-12, devuelve 404. Google lo va a desindexar solo en las próximas semanas |
+| 6 | DNS del `.com` alojado en Wix | ✅ Decidido: se deja así. Wix queda solo como servidor DNS. Verificado que despublicar no afectó la zona |
 
 ## 4. Google Ads — cuenta 573-915-0215
 
