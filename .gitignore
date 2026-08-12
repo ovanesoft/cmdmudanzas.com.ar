@@ -6,3 +6,9 @@ MIMUDANZA/
 .vercel
 .DS_Store
 node_modules/
+
+# Relevamiento del sitio viejo de Wix: fotos de banco descartadas, ~20 MB
+images/originales-wix/
+
+# Config local de Claude Code
+.claude/
