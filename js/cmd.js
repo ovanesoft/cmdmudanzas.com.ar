@@ -8,6 +8,53 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var WA = '5491127142006';
 
+  /* ============================================================
+     MEDICIÓN DE CONVERSIONES — Google Ads (AW-11228584141)
+
+     Todas las conversiones de este sitio son clics salientes o el envío
+     del cotizador. No hay página de gracias, así que la detección
+     automática de Google no serviría: los eventos se disparan acá.
+
+     Cada acción se cuenta UNA vez por sesión. Si alguien vuelve a tocar
+     WhatsApp diez minutos después sigue siendo el mismo lead, y contarlo
+     de nuevo infla las conversiones y hace que la puja optimice mal.
+     ============================================================ */
+  var CONV = {
+    cotizador: 'AW-11228584141/laW7CJ7p1uAcEM2xmuop',
+    whatsapp:  'AW-11228584141/iEFNCLjj1-AcEM2xmuop',
+    llamada:   ''   // pendiente: falta crear la acción CMD – Llamada en Google Ads
+  };
+
+  var yaContado = {};
+
+  function convertir(clave) {
+    var destino = CONV[clave];
+    if (!destino) return;                 // label sin cargar: no dispara nada
+    if (yaContado[clave]) return;         // una por sesión
+    yaContado[clave] = true;
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', {
+      send_to: destino,
+      value: 1.0,
+      currency: 'ARS',
+      // beacon sobrevive a que el usuario abandone la pestaña
+      transport_type: 'beacon'
+    });
+  }
+
+  /* Delegación: cubre también los enlaces que se generan después,
+     y los de las 114 subpáginas sin tener que engancharlos uno por uno. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) {
+      convertir('whatsapp');
+    } else if (href.indexOf('tel:') === 0) {
+      convertir('llamada');
+    }
+  }, true);
+
   /* ---------- SVG decorativos: fuera del árbol de accesibilidad ----------
      Los que sí comunican algo llevan role="img" + aria-label en el markup. */
   document.querySelectorAll('svg:not([role]):not([aria-label])').forEach(function (s) {
@@ -251,6 +298,10 @@
       if (val('f-detalle')) lines.push('', '*Detalles:* ' + val('f-detalle'));
 
       var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
+
+      // El formulario validado es la conversión de mayor intención del sitio.
+      // Se cuenta acá y no en el clic del botón, para no contar intentos fallidos.
+      convertir('cotizador');
 
       setTimeout(function () {
         window.open(url, '_blank', 'noopener');
