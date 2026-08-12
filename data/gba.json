@@ -1,0 +1,335 @@
+{
+  "_nota": "Gran Buenos Aires y ciudades bonaerenses. Se fusiona con localidades.json al generar.",
+  "localidades": [
+    {
+      "slug": "tigre", "nombre": "Tigre", "tipo": "gba", "tituloExtra": "y el Delta",
+      "intro": "Tigre tiene dos mudanzas posibles en el mismo partido: la de tierra firme, en barrios como Nordelta o Rincón de Milberg, y la de las islas del Delta, donde el camión no llega y todo entra por lancha.",
+      "detalle": "Esa segunda variante cambia por completo el planteo. Hay que coordinar embarcadero, marea y capacidad de la lancha, y el volumen se fracciona en viajes. No es una mudanza más cara por capricho: es otra operación.",
+      "operativo": ["En las islas coordinamos embarcadero, marea y cantidad de viajes por lancha", "En barrios cerrados como Nordelta gestionamos ingreso con guardia y reglamento", "En tierra firme trabajamos con camión directo según acceso"],
+      "faq": [
+        { "q": "¿Hacen mudanzas a las islas del Delta?", "a": "Sí, pero se planifica distinto: la carga se fracciona y entra por lancha. Hay que coordinar embarcadero y marea, y el presupuesto contempla los viajes necesarios." },
+        { "q": "¿Trabajan en Nordelta y barrios cerrados?", "a": "Sí. Suelen pedir aviso previo, horario pautado y seguro presentado en la administración. Lo gestionamos antes de la fecha." }
+      ],
+      "cerca": ["san-fernando", "san-isidro", "escobar", "vicente-lopez", "pilar"]
+    },
+    {
+      "slug": "san-isidro", "nombre": "San Isidro", "tipo": "gba",
+      "intro": "San Isidro combina el casco histórico de calles adoquinadas y casonas antiguas con zonas residenciales de casas amplias y edificios sobre la barranca.",
+      "detalle": "Las casonas del casco histórico son el desafío típico: escaleras angostas, puertas originales más estrechas que las actuales y muebles antiguos pesados que no admiten maniobras bruscas.",
+      "operativo": ["Relevamos ancho de puertas y escaleras en casas antiguas antes de cotizar", "Protección reforzada para muebles antiguos y de madera maciza", "Coordinación de horario en calles adoquinadas y de tránsito restringido"],
+      "faq": [
+        { "q": "¿Trabajan con muebles antiguos?", "a": "Sí. Requieren embalaje específico y a veces desarme parcial. Conviene mencionarlo al cotizar para prever tiempo y materiales." },
+        { "q": "¿Qué pasa si el mueble no pasa por la escalera?", "a": "Se evalúa elevación por balcón o ventana. En casas antiguas es una situación frecuente y se resuelve." }
+      ],
+      "cerca": ["vicente-lopez", "san-fernando", "tigre", "san-martin-gba"]
+    },
+    {
+      "slug": "vicente-lopez", "nombre": "Vicente López", "tipo": "gba", "tituloExtra": "Olivos y La Lucila",
+      "intro": "Vicente López es el primer partido del corredor norte: Olivos, La Lucila, Florida y Munro, con una franja de torres sobre el río y barrios de casas bajas tierra adentro.",
+      "detalle": "En las torres de la costanera la mudanza depende casi por completo del ascenso: horarios de consorcio, ascensor de servicio y reserva previa del espacio de carga.",
+      "operativo": ["Gestionamos reserva de ascensor de servicio y horario con la administración", "Verificamos medidas del ascensor antes de la fecha", "En zonas de casas bajas trabajamos con acceso directo de camión"],
+      "faq": [
+        { "q": "¿Hay que avisarle al consorcio?", "a": "En la mayoría de las torres sí, y muchas exigen reservar el ascensor de servicio y presentar el seguro. Lo coordinamos con anticipación." },
+        { "q": "¿Cubren Olivos, Florida y Munro?", "a": "Sí, todo el partido." }
+      ],
+      "cerca": ["san-isidro", "caba", "san-martin-gba", "tigre"]
+    },
+    {
+      "slug": "pilar", "nombre": "Pilar", "tipo": "gba", "tituloExtra": "countries y barrios cerrados",
+      "intro": "Pilar es el partido con mayor concentración de barrios cerrados del país. Cada uno tiene su propio reglamento: horarios permitidos, seguro exigido, aviso previo y registro de personal en guardia.",
+      "detalle": "Ese trámite administrativo suele ser la parte más subestimada de la mudanza. Un camión que llega sin autorización cargada en la guardia pierde horas o directamente no entra.",
+      "operativo": ["Presentamos seguro y nómina de personal en la administración del barrio", "Coordinamos el horario permitido de ingreso, que suele ser acotado", "Verificamos accesos internos y radio de giro del camión"],
+      "faq": [
+        { "q": "¿Qué necesita el country para dejarnos entrar?", "a": "Suele pedir aviso previo, seguro vigente y datos del personal. Cada barrio tiene su reglamento, así que lo consultamos antes de la fecha." },
+        { "q": "¿Hay horarios restringidos?", "a": "Casi siempre. Muchos barrios permiten mudanzas solo en franjas de días hábiles, lo cual condiciona la fecha." }
+      ],
+      "cerca": ["escobar", "tigre", "campana", "san-isidro", "moreno"]
+    },
+    {
+      "slug": "san-fernando", "nombre": "San Fernando", "tipo": "gba",
+      "intro": "San Fernando tiene fuerte impronta náutica: astilleros, guarderías y un continente que se extiende hacia las islas del Delta, igual que Tigre.",
+      "detalle": "Comparte con Tigre la doble modalidad: mudanza terrestre convencional en el continente y mudanza por agua para las islas, con toda la coordinación logística que eso implica.",
+      "operativo": ["Mudanzas terrestres convencionales en la zona continental", "Acceso fluvial coordinado para el sector isleño", "Traslado de embarcaciones y artículos náuticos según el caso"],
+      "faq": [
+        { "q": "¿Llegan a las islas de San Fernando?", "a": "Sí, con la misma modalidad que en Tigre: la carga entra por lancha y se planifica según marea y embarcadero." },
+        { "q": "¿Trasladan embarcaciones?", "a": "Consultanos el caso. Dependiendo del tamaño puede requerir plataforma elevadora o transporte especializado." }
+      ],
+      "cerca": ["tigre", "san-isidro", "escobar", "vicente-lopez"]
+    },
+    {
+      "slug": "escobar", "nombre": "Escobar", "tipo": "gba", "tituloExtra": "Belén de Escobar y Maschwitz",
+      "intro": "Escobar creció fuerte en la última década con barrios cerrados y emprendimientos sobre la Panamericana, sumados al casco de Belén de Escobar e Ingeniero Maschwitz.",
+      "detalle": "Es zona de transición: conviven barrios privados con reglamento estricto, casas de pueblo con acceso directo y sectores rurales con caminos de tierra que en días de lluvia condicionan la entrada del camión.",
+      "operativo": ["Coordinación con administración en barrios privados", "Evaluación de caminos de tierra según el clima previo a la fecha", "Corredor directo por Panamericana hacia CABA"],
+      "faq": [
+        { "q": "¿Qué pasa si llovió y el camino es de tierra?", "a": "Lo evaluamos antes. Si el acceso no es seguro, conviene reprogramar o resolver con un vehículo más chico hasta la puerta." },
+        { "q": "¿Cubren Maschwitz?", "a": "Sí, y todo el partido de Escobar." }
+      ],
+      "cerca": ["pilar", "campana", "tigre", "zarate", "san-fernando"]
+    },
+    {
+      "slug": "campana", "nombre": "Campana", "tipo": "gba",
+      "intro": "Campana es ciudad industrial y portuaria sobre el Paraná, con un polo petroquímico que genera movimiento constante de traslados por trabajo.",
+      "detalle": "Ese perfil hace que buena parte de las mudanzas sean corporativas o de familias que llegan o se van por un puesto, con fechas atadas a un calendario laboral que rara vez es flexible.",
+      "operativo": ["Mudanzas con fecha fija atada a calendario laboral", "Acceso directo por Panamericana y Ruta 9", "Capacidad para traslados industriales con plataforma elevadora"],
+      "faq": [
+        { "q": "¿Hacen mudanzas corporativas?", "a": "Sí, incluidos traslados de personal con fecha fija y mudanzas de oficina completas." },
+        { "q": "¿Pueden mover maquinaria pesada?", "a": "Sí, para eso está la plataforma elevadora, que levanta hasta 1.200 kg." }
+      ],
+      "cerca": ["zarate", "escobar", "pilar", "tigre"]
+    },
+    {
+      "slug": "zarate", "nombre": "Zárate", "tipo": "gba",
+      "intro": "Zárate es nudo logístico: el complejo Zárate–Brazo Largo conecta el AMBA con el litoral y con Uruguay, y por ahí pasa buena parte del tránsito de larga distancia hacia el noreste.",
+      "detalle": "Estar sobre ese corredor tiene una ventaja práctica: es mucho más probable que una mudanza coincida con una ruta ya programada, lo que abre la puerta a la modalidad compartida.",
+      "operativo": ["Ubicación sobre el corredor hacia el litoral y Uruguay", "Alta probabilidad de coincidencia para mudanza compartida", "Acceso directo por Ruta 9 y complejo Zárate–Brazo Largo"],
+      "faq": [
+        { "q": "¿Conviene la mudanza compartida desde Zárate?", "a": "Suele convenir, porque la ciudad está sobre un corredor muy transitado y es más fácil que tu carga coincida con otro viaje." },
+        { "q": "¿Hacen mudanzas a Uruguay desde acá?", "a": "Sí, el complejo Zárate–Brazo Largo es paso habitual. Requiere trámites previos." }
+      ],
+      "cerca": ["campana", "escobar", "entre-rios", "pilar"]
+    },
+    {
+      "slug": "san-martin-gba", "nombre": "San Martín", "tipo": "gba", "tituloExtra": "Gran Buenos Aires",
+      "intro": "General San Martín es uno de los partidos más industriales del primer cordón, con Villa Lynch, Villa Ballester y San Andrés combinando galpones, talleres y zonas residenciales.",
+      "detalle": "Esa mezcla genera mudanzas de dos tipos en el mismo partido: viviendas en calles densas de tránsito pesado, y traslados industriales que requieren plataforma elevadora.",
+      "operativo": ["Coordinación de horario por tránsito pesado en zonas industriales", "Plataforma elevadora disponible para traslados de taller y maquinaria", "Cercanía a CABA que facilita mudanzas de corta distancia"],
+      "faq": [
+        { "q": "¿Pueden mudar un taller o galpón?", "a": "Sí. Para maquinaria usamos plataforma elevadora, que levanta hasta 1.200 kg." },
+        { "q": "¿Cubren Villa Ballester y San Andrés?", "a": "Sí, todo el partido de General San Martín." }
+      ],
+      "cerca": ["tres-de-febrero", "vicente-lopez", "caba", "san-isidro"]
+    },
+    {
+      "slug": "tres-de-febrero", "nombre": "Tres de Febrero", "tipo": "gba", "tituloExtra": "Caseros y Ciudadela",
+      "intro": "Tres de Febrero reúne Caseros, Ciudadela, Santos Lugares, Sáenz Peña y Pablo Podestá, con una trama urbana densa y calles angostas heredadas del crecimiento sin planificación del conurbano.",
+      "detalle": "El ancho de calle es acá el factor decisivo: en muchas cuadras un camión de 50 m³ simplemente no maniobra, y conviene resolver con un vehículo más chico y más viajes.",
+      "operativo": ["Evaluamos ancho de calle y radio de giro antes de definir el camión", "Cuando no entra el grande, planteamos vehículo menor con más viajes", "Cercanía a CABA para mudanzas de corta distancia"],
+      "faq": [
+        { "q": "¿Y si no entra el camión en mi calle?", "a": "Se resuelve con un vehículo más chico y más viajes, o cargando desde una esquina cercana. Lo definimos al relevar la dirección." },
+        { "q": "¿Cubren toda la zona?", "a": "Sí: Caseros, Ciudadela, Santos Lugares, Sáenz Peña y Pablo Podestá." }
+      ],
+      "cerca": ["san-martin-gba", "moron", "caba", "ramos-mejia"]
+    },
+    {
+      "slug": "moron", "nombre": "Morón", "tipo": "gba",
+      "intro": "Morón es el centro administrativo y comercial del corredor oeste, con Haedo, Castelar y El Palomar en el mismo partido y una estación que ordena el movimiento de toda la zona.",
+      "detalle": "El centro tiene la densidad y las restricciones típicas de una cabecera: peatonales, estacionamiento medido y tránsito intenso en horario comercial.",
+      "operativo": ["Coordinamos horario para evitar el pico comercial del centro", "Verificamos restricciones de estacionamiento y peatonales", "Acceso directo por Acceso Oeste"],
+      "faq": [
+        { "q": "¿Cuál es el mejor horario para mudarse en el centro?", "a": "Fuera del pico comercial. Lo coordinamos según la dirección exacta para no perder tiempo el día de la mudanza." },
+        { "q": "¿Cubren Castelar y Haedo?", "a": "Sí, tienen su propia página, y también cubrimos el resto del partido." }
+      ],
+      "cerca": ["haedo", "castelar", "ramos-mejia", "ituzaingo", "tres-de-febrero"]
+    },
+    {
+      "slug": "ramos-mejia", "nombre": "Ramos Mejía", "tipo": "gba",
+      "intro": "Ramos Mejía es la zona más residencial de La Matanza: calles arboladas, casas con jardín y una franja de edificios en altura cerca de la estación y de la avenida Rivadavia.",
+      "detalle": "Esa doble trama obliga a planteos distintos según la cuadra: casa baja con acceso directo, o edificio con ascensor chico y reglamento de consorcio.",
+      "operativo": ["En edificios verificamos medidas de ascensor y reglamento", "En casas bajas trabajamos con acceso directo de camión", "Corredor directo con CABA por Rivadavia y Acceso Oeste"],
+      "faq": [
+        { "q": "¿Trabajan en edificios sobre Rivadavia?", "a": "Sí. Ahí la clave es el ascensor y el horario permitido por el consorcio, que coordinamos antes." },
+        { "q": "¿Ramos Mejía es parte de La Matanza?", "a": "Sí. Tiene página propia por volumen de búsqueda, pero pertenece al partido de La Matanza." }
+      ],
+      "cerca": ["haedo", "moron", "la-matanza", "tres-de-febrero", "caba"]
+    },
+    {
+      "slug": "haedo", "nombre": "Haedo", "tipo": "gba",
+      "intro": "Haedo es una localidad tranquila del oeste, mayormente residencial, con casas bajas y una vida de barrio que se organiza alrededor de la estación.",
+      "detalle": "La trama de casas bajas facilita el acceso directo del camión, lo que suele hacer las mudanzas más ágiles que en zonas de edificios.",
+      "operativo": ["Predominan accesos directos de camión a la puerta", "Trama de calles que admite vehículos de mayor porte", "Cercanía a Morón, Ramos Mejía y Castelar"],
+      "faq": [
+        { "q": "¿Se puede estacionar el camión en la puerta?", "a": "En la mayoría de las calles sí, lo cual agiliza bastante la carga. Igual lo verificamos al relevar la dirección." },
+        { "q": "¿Cubren mudanzas hacia CABA?", "a": "Sí, es un tramo corto y frecuente." }
+      ],
+      "cerca": ["moron", "ramos-mejia", "castelar", "ituzaingo"]
+    },
+    {
+      "slug": "castelar", "nombre": "Castelar", "tipo": "gba",
+      "intro": "Castelar es de las zonas más arboladas del oeste, con casas con jardín y una franja norte residencial de lotes amplios.",
+      "detalle": "Los lotes grandes suelen implicar más volumen del que la gente calcula: quinchos, galpones, herramientas de jardín y muebles de exterior que no estaban en la cuenta inicial.",
+      "operativo": ["Relevamos también quincho, galpón y exterior, no solo la casa", "Accesos amplios que permiten camión de mayor porte", "Corredor directo por Acceso Oeste"],
+      "faq": [
+        { "q": "¿Cuentan lo del galpón y el quincho?", "a": "Sí, y conviene mencionarlo. Es el error más común al estimar volumen y el que más cambia el presupuesto." },
+        { "q": "¿Cubren Castelar norte y sur?", "a": "Sí, toda la localidad." }
+      ],
+      "cerca": ["moron", "haedo", "ituzaingo", "moreno"]
+    },
+    {
+      "slug": "ituzaingo", "nombre": "Ituzaingó", "tipo": "gba",
+      "intro": "Ituzaingó es un partido joven, separado de Morón en los años noventa, con perfil residencial y crecimiento sostenido de barrios de casas.",
+      "detalle": "Es zona de familias que se mudan dentro del mismo corredor oeste, lo que genera muchas mudanzas de corta distancia entre localidades vecinas.",
+      "operativo": ["Alta proporción de mudanzas cortas dentro del corredor oeste", "Accesos residenciales que admiten camión directo", "Conexión por Acceso Oeste con CABA"],
+      "faq": [
+        { "q": "¿Hacen mudanzas cortas dentro del oeste?", "a": "Sí, y son de las más frecuentes en la zona. Se cotizan distinto que una de larga distancia." },
+        { "q": "¿Conviene camión chico para una mudanza corta?", "a": "No necesariamente. Si el volumen entra en uno grande, un solo viaje suele salir más barato que varios chicos." }
+      ],
+      "cerca": ["moron", "castelar", "merlo", "moreno", "haedo"]
+    },
+    {
+      "slug": "merlo", "nombre": "Merlo", "tipo": "gba",
+      "intro": "Merlo es uno de los partidos más poblados del conurbano oeste, con San Antonio de Padua, Libertad y Pontevedra como localidades de peso propio dentro del mismo distrito.",
+      "detalle": "Es un partido extenso y desigual: hay zonas con calles asfaltadas y acceso cómodo, y otras con calles de tierra donde el clima previo condiciona la entrada del camión.",
+      "operativo": ["Verificamos estado de calle según el clima de los días previos", "Cobertura de Padua, Libertad, Pontevedra y el resto del partido", "Acceso por Acceso Oeste y Ruta 200"],
+      "faq": [
+        { "q": "¿Entran a calles de tierra?", "a": "Sí, evaluando el estado. Si llovió y el acceso no es seguro, planteamos alternativa o reprogramación." },
+        { "q": "¿Cubren San Antonio de Padua?", "a": "Sí, y todas las localidades del partido." }
+      ],
+      "cerca": ["moreno", "ituzaingo", "la-matanza", "castelar"]
+    },
+    {
+      "slug": "moreno", "nombre": "Moreno", "tipo": "gba",
+      "intro": "Moreno es un partido extenso del oeste con crecimiento sostenido, que combina el casco urbano con Paso del Rey, Trujui y Cuartel V, además de zonas semirrurales hacia el oeste.",
+      "detalle": "La extensión es el dato: dos direcciones dentro del mismo partido pueden estar a veinte kilómetros, con accesos muy distintos.",
+      "operativo": ["Relevamos la dirección exacta, porque el partido es muy extenso", "Evaluación de calles de tierra en zonas semirrurales", "Acceso por Acceso Oeste y Ruta 25"],
+      "faq": [
+        { "q": "¿Cubren todo el partido?", "a": "Sí: casco, Paso del Rey, Trujui, Cuartel V y la zona semirrural." },
+        { "q": "¿Cambia el precio según dónde esté dentro de Moreno?", "a": "Puede cambiar, porque el partido es extenso y el acceso varía. Por eso cotizamos sobre la dirección exacta." }
+      ],
+      "cerca": ["merlo", "ituzaingo", "lujan", "pilar", "castelar"]
+    },
+    {
+      "slug": "la-matanza", "nombre": "La Matanza", "tipo": "gba", "tituloExtra": "San Justo y alrededores",
+      "intro": "La Matanza es el partido más poblado del país. San Justo funciona como cabecera administrativa, y González Catán, Laferrere, Isidro Casanova y Rafael Castillo son ciudades por derecho propio.",
+      "detalle": "Por su tamaño, dos puntos del mismo partido pueden estar a más de treinta kilómetros con realidades urbanas opuestas. La dirección exacta define todo el planteo.",
+      "operativo": ["Cotizamos sobre dirección exacta por la extensión del partido", "Evaluación de ancho de calle en zonas densas", "Accesos por Ricchieri, Camino de Cintura y Ruta 3"],
+      "faq": [
+        { "q": "¿Cubren González Catán y Laferrere?", "a": "Sí, y el resto de las localidades del partido." },
+        { "q": "¿Por qué piden la dirección exacta?", "a": "Porque La Matanza es enorme. La distancia y el tipo de acceso cambian mucho el presupuesto." }
+      ],
+      "cerca": ["ramos-mejia", "merlo", "moron", "lomas-de-zamora", "ezeiza"]
+    },
+    {
+      "slug": "lujan", "nombre": "Luján", "tipo": "gba",
+      "intro": "Luján es ciudad de peregrinación por la Basílica, con un casco histórico de calles angostas y una zona de quintas y countries hacia el norte.",
+      "detalle": "Los fines de semana de peregrinación el tránsito cambia por completo y hay cortes que afectan el acceso al centro. Elegir bien la fecha evita perder horas.",
+      "operativo": ["Evitamos fechas de peregrinación masiva por los cortes de tránsito", "Calles angostas en el casco histórico que condicionan el camión", "Acceso por Acceso Oeste y Ruta 5"],
+      "faq": [
+        { "q": "¿Conviene evitar algún fin de semana?", "a": "Sí, los de peregrinación masiva. El acceso al centro se complica bastante. Lo tenemos en cuenta al coordinar la fecha." },
+        { "q": "¿Llegan a las quintas de la zona?", "a": "Sí, evaluando el acceso, que a veces es camino de tierra." }
+      ],
+      "cerca": ["moreno", "pilar", "merlo", "buenos-aires"]
+    },
+    {
+      "slug": "avellaneda", "nombre": "Avellaneda", "tipo": "gba",
+      "intro": "Avellaneda es la puerta sur de CABA cruzando el Riachuelo, con Sarandí, Wilde y Dock Sud, y una fuerte tradición industrial junto al puerto.",
+      "detalle": "Los puentes son el cuello de botella: Pueyrredón, Nuevo Pueyrredón y Avellaneda concentran el tránsito y en hora pico pueden agregar mucho tiempo a un tramo corto.",
+      "operativo": ["Coordinamos horario para evitar la congestión de los puentes", "Plataforma elevadora disponible para la zona industrial", "Cercanía a CABA para mudanzas de corta distancia"],
+      "faq": [
+        { "q": "¿Cuánto demora cruzar a CABA?", "a": "Depende mucho del horario. En hora pico los puentes agregan bastante tiempo, así que coordinamos la carga en consecuencia." },
+        { "q": "¿Cubren Dock Sud y Sarandí?", "a": "Sí, todo el partido." }
+      ],
+      "cerca": ["lanus", "quilmes", "caba", "lomas-de-zamora"]
+    },
+    {
+      "slug": "lanus", "nombre": "Lanús", "tipo": "gba",
+      "intro": "Lanús es uno de los partidos más densos del conurbano sur, con Lanús Este y Oeste separados por las vías y una trama urbana muy compacta.",
+      "detalle": "Esa densidad se traduce en calles angostas, poca disponibilidad de estacionamiento y frentes estrechos: tres factores que definen el tamaño de camión posible.",
+      "operativo": ["Evaluamos ancho de calle y frente antes de definir el vehículo", "Coordinación de horario por disponibilidad de estacionamiento", "Cruce frecuente a CABA por Puente Alsina y Pueyrredón"],
+      "faq": [
+        { "q": "¿Y si la calle es muy angosta?", "a": "Usamos un camión más chico o cargamos desde una esquina cercana. Se define al relevar la dirección." },
+        { "q": "¿Cubren Lanús Este y Oeste?", "a": "Sí, todo el partido." }
+      ],
+      "cerca": ["avellaneda", "lomas-de-zamora", "quilmes", "caba"]
+    },
+    {
+      "slug": "lomas-de-zamora", "nombre": "Lomas de Zamora", "tipo": "gba",
+      "intro": "Lomas de Zamora es cabecera del sur bonaerense, con Banfield, Temperley y Turdera en el mismo partido y un centro comercial de mucho movimiento.",
+      "detalle": "Banfield y Temperley tienen zonas residenciales arboladas de casas amplias, mientras que el centro de Lomas concentra la densidad y las restricciones de tránsito.",
+      "operativo": ["En el centro coordinamos horario por tránsito y estacionamiento", "En Banfield y Temperley el acceso residencial suele ser directo", "Conexión por Camino Negro y Puente La Noria"],
+      "faq": [
+        { "q": "¿Cubren Banfield y Temperley?", "a": "Sí, y Turdera y el resto del partido." },
+        { "q": "¿Cuál es el mejor horario para el centro?", "a": "Fuera del pico comercial. Lo coordinamos según la dirección." }
+      ],
+      "cerca": ["lanus", "almirante-brown", "avellaneda", "la-matanza", "quilmes"]
+    },
+    {
+      "slug": "quilmes", "nombre": "Quilmes", "tipo": "gba",
+      "intro": "Quilmes combina el centro comercial, la zona de la ribera sobre el Río de la Plata y barrios residenciales como Bernal y Don Bosco.",
+      "detalle": "La ribera tiene una particularidad: es zona baja, y con sudestada fuerte hay calles que se anegan. En esos días conviene reprogramar antes que arriesgar la carga.",
+      "operativo": ["Atención al pronóstico de sudestada en la zona ribereña", "Cobertura de Bernal, Don Bosco y Ezpeleta", "Acceso por Autopista La Plata y Camino General Belgrano"],
+      "faq": [
+        { "q": "¿Qué pasa si hay sudestada?", "a": "En la zona baja de la ribera puede anegarse. Si el pronóstico es malo, conviene reprogramar: no vale la pena arriesgar los muebles." },
+        { "q": "¿Cubren Bernal y Don Bosco?", "a": "Sí, todo el partido de Quilmes." }
+      ],
+      "cerca": ["berazategui", "avellaneda", "lanus", "florencio-varela", "lomas-de-zamora"]
+    },
+    {
+      "slug": "berazategui", "nombre": "Berazategui", "tipo": "gba",
+      "intro": "Berazategui tiene tradición industrial vinculada al vidrio y la cerámica, con Hudson y Ranelagh como zonas residenciales de lotes amplios y mucho verde.",
+      "detalle": "Hudson y Ranelagh concentran barrios cerrados y casas con parque, donde el volumen real suele superar lo estimado por los espacios exteriores.",
+      "operativo": ["Relevamos parque, quincho y galpón además de la casa", "Coordinación con administración en barrios cerrados de Hudson", "Acceso por Autopista La Plata"],
+      "faq": [
+        { "q": "¿Trabajan en los barrios cerrados de Hudson?", "a": "Sí. Requieren aviso previo, seguro y horario pautado, que gestionamos antes de la fecha." },
+        { "q": "¿Cuentan los muebles de exterior?", "a": "Sí, y suman más volumen del que se calcula. Conviene mencionarlos al cotizar." }
+      ],
+      "cerca": ["quilmes", "florencio-varela", "la-plata", "ezeiza"]
+    },
+    {
+      "slug": "florencio-varela", "nombre": "Florencio Varela", "tipo": "gba",
+      "intro": "Florencio Varela es un partido extenso del sur, con crecimiento sostenido y una zona de quintas y producción hortícola hacia el interior del distrito.",
+      "detalle": "Como en otros partidos del segundo cordón, la infraestructura vial es despareja: hay sectores con asfalto y otros donde el acceso depende del clima.",
+      "operativo": ["Verificación del estado de calle en zonas sin asfaltar", "Cotización sobre dirección exacta por la extensión del partido", "Acceso por Camino General Belgrano y Ruta 53"],
+      "faq": [
+        { "q": "¿Llegan a las zonas de quintas?", "a": "Sí, evaluando el acceso. Si el camino es de tierra y llovió, lo conversamos antes." },
+        { "q": "¿Cotizan a cualquier punto del partido?", "a": "Sí, sobre la dirección exacta." }
+      ],
+      "cerca": ["quilmes", "berazategui", "almirante-brown", "la-plata"]
+    },
+    {
+      "slug": "almirante-brown", "nombre": "Almirante Brown", "tipo": "gba", "tituloExtra": "Adrogué y Burzaco",
+      "intro": "Almirante Brown reúne Adrogué, Burzaco, Longchamps, Glew y Rafael Calzada, con realidades urbanas bastante distintas dentro del mismo partido.",
+      "detalle": "Adrogué destaca por su casco histórico de casonas y calles arboladas, con restricciones de tránsito que no aplican en el resto del distrito.",
+      "operativo": ["En el casco de Adrogué evaluamos acceso y arbolado antes de definir el camión", "Cobertura de Burzaco, Longchamps, Glew y Calzada", "Acceso por Camino de Cintura y Ruta 210"],
+      "faq": [
+        { "q": "¿El arbolado de Adrogué complica el camión?", "a": "Puede limitar la altura útil en algunas cuadras. Lo verificamos al relevar la dirección." },
+        { "q": "¿Cubren todas las localidades del partido?", "a": "Sí, todas." }
+      ],
+      "cerca": ["lomas-de-zamora", "florencio-varela", "ezeiza", "quilmes"]
+    },
+    {
+      "slug": "ezeiza", "nombre": "Ezeiza", "tipo": "gba",
+      "intro": "Ezeiza es conocida por el aeropuerto, pero el partido creció con barrios cerrados en Canning y una zona residencial que aprovecha el verde y la cercanía a Ricchieri.",
+      "detalle": "La proximidad al aeropuerto suma un tipo particular de cliente: gente que se muda por trabajo o que llega y se va del país, con mudanzas internacionales asociadas.",
+      "operativo": ["Coordinación con administración en los barrios cerrados de Canning", "Acceso directo por Autopista Ricchieri", "Vinculación frecuente con mudanzas internacionales por el aeropuerto"],
+      "faq": [
+        { "q": "¿Trabajan en Canning?", "a": "Sí. Los barrios cerrados requieren aviso previo, seguro y horario pautado." },
+        { "q": "¿Hacen mudanzas internacionales desde acá?", "a": "Sí, a Chile, Uruguay y Brasil. Requieren trámites previos con anticipación." }
+      ],
+      "cerca": ["almirante-brown", "la-matanza", "berazategui", "lomas-de-zamora"]
+    },
+    {
+      "slug": "la-plata", "nombre": "La Plata", "tipo": "gba", "tituloExtra": "capital bonaerense",
+      "intro": "La Plata tiene un trazado único en el país: cuadrícula perfecta con diagonales, que hace la orientación simple pero genera cruces complejos en las esquinas donde confluyen tres calles.",
+      "detalle": "Es además ciudad universitaria, lo que concentra muchísimas mudanzas de departamentos chicos en febrero y marzo, cuando arranca el ciclo lectivo.",
+      "operativo": ["Alta demanda de mudanzas chicas al inicio del ciclo lectivo", "Las diagonales complican algunas maniobras de estacionamiento", "Acceso por Autopista La Plata y Camino General Belgrano"],
+      "faq": [
+        { "q": "¿Conviene reservar con anticipación en febrero?", "a": "Sí. Es el pico de mudanzas estudiantiles y la disponibilidad de fecha se reduce bastante." },
+        { "q": "¿Hacen mudanzas chicas de un ambiente?", "a": "Sí. Para volúmenes bajos suele convenir la modalidad compartida." }
+      ],
+      "cerca": ["berazategui", "florencio-varela", "buenos-aires", "quilmes"]
+    },
+    {
+      "slug": "mar-del-plata", "nombre": "Mar del Plata", "tipo": "gba",
+      "intro": "Mar del Plata es la ciudad más grande de la costa atlántica y funciona todo el año, con un centro de torres frente al mar y barrios residenciales tierra adentro.",
+      "detalle": "En temporada alta el tránsito y el estacionamiento en la zona costera se complican mucho. Fuera de temporada, la misma mudanza es notablemente más simple y más barata de coordinar.",
+      "operativo": ["Fuera de temporada la coordinación es más simple y ágil", "En las torres frente al mar gestionamos ascensor y reglamento", "Corredor frecuente con Buenos Aires por Ruta 2"],
+      "faq": [
+        { "q": "¿Conviene mudarse fuera de temporada?", "a": "Sí, bastante. En enero y febrero el tránsito y el estacionamiento en la zona costera complican mucho la operación." },
+        { "q": "¿Cuánto tarda desde Buenos Aires?", "a": "Es un corredor directo por Ruta 2. Al cotizar te damos fecha estimada." }
+      ],
+      "cerca": ["buenos-aires", "partido-de-la-costa", "bahia-blanca", "la-plata"]
+    },
+    {
+      "slug": "bahia-blanca", "nombre": "Bahía Blanca", "tipo": "gba",
+      "intro": "Bahía Blanca es el nodo del sur bonaerense: puerto de aguas profundas, polo petroquímico y universidad, con Punta Alta muy cerca.",
+      "detalle": "Funciona como bisagra entre el centro del país y la Patagonia. Muchas mudanzas hacia el sur hacen escala o pasan por acá, lo que facilita coordinar rutas compartidas.",
+      "operativo": ["Punto de paso habitual hacia la Patagonia", "Buena probabilidad de coincidencia para mudanza compartida", "Viento fuerte que se contempla en la sujeción de la carga"],
+      "faq": [
+        { "q": "¿Conviene la mudanza compartida?", "a": "Suele convenir, porque la ciudad está sobre el corredor hacia el sur y es más fácil que coincida con otro viaje." },
+        { "q": "¿Llegan a Punta Alta?", "a": "Sí, y a la zona de influencia de Bahía Blanca." }
+      ],
+      "cerca": ["buenos-aires", "la-pampa", "rio-negro", "mar-del-plata"]
+    }
+  ]
+}

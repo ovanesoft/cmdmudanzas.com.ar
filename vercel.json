@@ -1,21 +1,53 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    { "source": "/mudanzas-empresariales.html", "destination": "/#tipos",        "permanent": true },
-    { "source": "/mudanzas-empresariales",      "destination": "/#tipos",        "permanent": true },
-    { "source": "/mudanzas-compartidas.html",   "destination": "/#compartidas",  "permanent": true },
-    { "source": "/mudanzas-compartidas",        "destination": "/#compartidas",  "permanent": true },
-    { "source": "/ofertas.html",                "destination": "/#cotizar",      "permanent": true },
-    { "source": "/ofertas",                     "destination": "/#cotizar",      "permanent": true }
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?cmdmudanzas\\.com\\.ar"
+        }
+      ],
+      "destination": "https://www.cmdmudanzas.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/mudanzas-empresariales",
+      "destination": "/#tipos",
+      "permanent": true
+    },
+    {
+      "source": "/mudanzas-compartidas",
+      "destination": "/#compartidas",
+      "permanent": true
+    },
+    {
+      "source": "/ofertas",
+      "destination": "/#cotizar",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)\\.(css|js)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/images/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,137 @@
+{
+  "_nota": "Partido de la Costa y balnearios atlánticos.",
+  "localidades": [
+    {
+      "slug": "partido-de-la-costa", "nombre": "Partido de la Costa", "tipo": "costa",
+      "intro": "El Partido de la Costa reúne una franja de balnearios que va de San Clemente del Tuyú a Mar de Ajó, unidos por la Ruta 11 y con una población estable que crece cada año.",
+      "detalle": "La diferencia entre temporada y resto del año es enorme. En enero la Ruta 11 y los accesos se saturan; el resto del año la operación es mucho más fluida y conviene aprovecharlo.",
+      "operativo": ["Fuera de temporada la coordinación es más simple y económica", "En verano se planifica evitando los picos de la Ruta 11", "Arena y salitre exigen embalaje que proteja del ambiente costero"],
+      "faq": [
+        { "q": "¿Conviene mudarse en temporada?", "a": "No, si podés elegir. En enero y febrero los accesos y la Ruta 11 se saturan, lo que alarga los tiempos." },
+        { "q": "¿El salitre afecta los muebles?", "a": "Puede afectar metales y ciertos acabados. El embalaje contempla el ambiente costero." }
+      ],
+      "cerca": ["san-clemente-del-tuyu", "santa-teresita", "san-bernardo", "mar-de-ajo", "mar-del-plata"]
+    },
+    {
+      "slug": "san-clemente-del-tuyu", "nombre": "San Clemente del Tuyú", "tipo": "costa",
+      "intro": "San Clemente es la primera parada de la costa atlántica bonaerense y la más cercana a Buenos Aires, con Mundo Marino y la bahía de Samborombón como marcas del lugar.",
+      "detalle": "Su cercanía relativa al AMBA la vuelve destino frecuente de gente que deja la ciudad para instalarse todo el año frente al mar.",
+      "operativo": ["El balneario más cercano al AMBA sobre la Ruta 11", "Embalaje protegido del salitre y la arena", "Fuera de temporada la operación es más ágil"],
+      "faq": [
+        { "q": "¿Cuánto tarda desde Buenos Aires?", "a": "Es de los destinos costeros más cercanos al AMBA. Al cotizar te damos fecha estimada." },
+        { "q": "¿Hacen mudanzas definitivas, no solo de veraneo?", "a": "Sí, y son cada vez más frecuentes: gente que deja la ciudad para vivir todo el año en la costa." }
+      ],
+      "cerca": ["partido-de-la-costa", "las-toninas", "santa-teresita", "mar-del-tuyu"]
+    },
+    {
+      "slug": "las-toninas", "nombre": "Las Toninas", "tipo": "costa",
+      "intro": "Las Toninas es un balneario tranquilo de playa ancha, conocido además por ser el punto donde llegan a tierra varios cables submarinos de internet del país.",
+      "detalle": "Es de perfil familiar y de escala chica, con calles de arena en algunos sectores que condicionan el acceso del camión.",
+      "operativo": ["Verificamos calles de arena antes de definir el vehículo", "Escala chica que facilita accesos directos", "Embalaje protegido del ambiente costero"],
+      "faq": [
+        { "q": "¿Entran a las calles de arena?", "a": "Depende del sector y del estado. A veces conviene un vehículo más chico para el tramo final." },
+        { "q": "¿Trabajan fuera de temporada?", "a": "Sí, y es cuando más conviene coordinar." }
+      ],
+      "cerca": ["san-clemente-del-tuyu", "santa-teresita", "partido-de-la-costa", "mar-del-tuyu"]
+    },
+    {
+      "slug": "santa-teresita", "nombre": "Santa Teresita", "tipo": "costa",
+      "intro": "Santa Teresita es una de las localidades con más servicios del Partido de la Costa, con actividad comercial durante todo el año y no solo en verano.",
+      "detalle": "Esa continuidad la volvió destino de residencia permanente para mucha gente que antes venía solo de vacaciones.",
+      "operativo": ["Actividad comercial todo el año que facilita la logística", "Accesos asfaltados en la mayor parte del ejido", "Embalaje protegido del salitre"],
+      "faq": [
+        { "q": "¿Hay servicios todo el año?", "a": "Sí, es de las localidades más activas del partido fuera de temporada, lo que simplifica la coordinación." },
+        { "q": "¿Cubren mudanzas desde el AMBA?", "a": "Sí, es un corredor frecuente por Ruta 11." }
+      ],
+      "cerca": ["mar-del-tuyu", "las-toninas", "san-bernardo", "partido-de-la-costa"]
+    },
+    {
+      "slug": "mar-del-tuyu", "nombre": "Mar del Tuyú", "tipo": "costa",
+      "intro": "Mar del Tuyú es la cabecera administrativa del Partido de la Costa, más tranquila que sus vecinas y con perfil netamente residencial.",
+      "detalle": "Al ser sede municipal tiene actividad administrativa todo el año, lo que sostiene una población estable más allá de la temporada.",
+      "operativo": ["Cabecera del partido con actividad todo el año", "Perfil residencial con accesos mayormente directos", "Embalaje adaptado al ambiente costero"],
+      "faq": [
+        { "q": "¿Es la cabecera del partido?", "a": "Sí, ahí funciona la sede municipal del Partido de la Costa." },
+        { "q": "¿Trabajan todo el año?", "a": "Sí, y fuera de temporada la operación es más simple." }
+      ],
+      "cerca": ["santa-teresita", "las-toninas", "san-clemente-del-tuyu", "partido-de-la-costa"]
+    },
+    {
+      "slug": "costa-del-este", "nombre": "Costa del Este", "tipo": "costa",
+      "intro": "Costa del Este se distingue por su forestación: calles con nombres de árboles y un diseño urbano que priorizó el verde sobre la cuadrícula tradicional.",
+      "detalle": "Ese trazado curvo y arbolado es lindo pero condiciona el acceso: hay calles angostas con ramas bajas donde un camión alto no pasa cómodo.",
+      "operativo": ["Verificamos altura libre por el arbolado en calles internas", "Trazado curvo que exige relevar el acceso previo", "Embalaje protegido del ambiente costero"],
+      "faq": [
+        { "q": "¿El arbolado complica el camión?", "a": "En algunas calles sí, por la altura de las ramas. Lo verificamos antes para no tener sorpresas el día de la mudanza." },
+        { "q": "¿Cubren toda la localidad?", "a": "Sí, evaluando el acceso según la dirección." }
+      ],
+      "cerca": ["aguas-verdes", "la-lucila-del-mar", "san-bernardo", "partido-de-la-costa"]
+    },
+    {
+      "slug": "aguas-verdes", "nombre": "Aguas Verdes", "tipo": "costa",
+      "intro": "Aguas Verdes es un balneario chico y tranquilo, de escala reducida y perfil netamente familiar, entre médanos y forestación.",
+      "detalle": "Al ser una localidad pequeña, la mayoría de las direcciones tienen acceso directo, aunque hay sectores donde la arena avanza sobre la calle.",
+      "operativo": ["Escala chica con accesos mayormente directos", "Atención a sectores con arena sobre la calzada", "Embalaje protegido del salitre"],
+      "faq": [
+        { "q": "¿Hay problemas de acceso por la arena?", "a": "En algunos sectores puede haber. Lo verificamos al relevar la dirección." },
+        { "q": "¿Trabajan fuera de temporada?", "a": "Sí, y es cuando más conviene." }
+      ],
+      "cerca": ["costa-del-este", "la-lucila-del-mar", "mar-de-ajo", "partido-de-la-costa"]
+    },
+    {
+      "slug": "la-lucila-del-mar", "nombre": "La Lucila del Mar", "tipo": "costa",
+      "intro": "La Lucila del Mar es un balneario discreto entre San Bernardo y Costa del Este, con perfil residencial y menos movimiento que sus vecinas.",
+      "detalle": "Su escala chica hace que la mayoría de las mudanzas sean de casas y departamentos de pocos ambientes, un volumen que suele encajar bien en la modalidad compartida.",
+      "operativo": ["Volúmenes chicos que suelen convenir en modalidad compartida", "Accesos directos en la mayor parte del ejido", "Embalaje adaptado al ambiente costero"],
+      "faq": [
+        { "q": "¿Conviene la mudanza compartida acá?", "a": "Sí, para volúmenes chicos. Al estar sobre el corredor de la Ruta 11 es más fácil que coincida con otro viaje." },
+        { "q": "¿Cubren toda la localidad?", "a": "Sí." }
+      ],
+      "cerca": ["san-bernardo", "costa-del-este", "aguas-verdes", "partido-de-la-costa"]
+    },
+    {
+      "slug": "san-bernardo", "nombre": "San Bernardo", "tipo": "costa", "tituloExtra": "del Tuyú",
+      "intro": "San Bernardo es uno de los balnearios con más densidad de edificios de la costa, con torres a pocas cuadras del mar y mucha vida comercial en temporada.",
+      "detalle": "Esa densidad cambia el planteo respecto de los balnearios de casas bajas: acá aparecen los ascensores chicos, los reglamentos de consorcio y la falta de estacionamiento en verano.",
+      "operativo": ["Verificamos medidas de ascensor y reglamento en edificios", "En temporada el estacionamiento es el principal cuello de botella", "Embalaje protegido del salitre"],
+      "faq": [
+        { "q": "¿Trabajan en edificios de la zona céntrica?", "a": "Sí. La clave es el ascensor y el horario permitido, que coordinamos antes." },
+        { "q": "¿Conviene evitar el verano?", "a": "Si podés elegir, sí: el estacionamiento en temporada complica bastante la carga." }
+      ],
+      "cerca": ["mar-de-ajo", "la-lucila-del-mar", "santa-teresita", "partido-de-la-costa"]
+    },
+    {
+      "slug": "mar-de-ajo", "nombre": "Mar de Ajó", "tipo": "costa",
+      "intro": "Mar de Ajó es la localidad más grande del Partido de la Costa, con puerto, servicios completos y población estable durante todo el año.",
+      "detalle": "Su tamaño y sus servicios la vuelven el punto de referencia del partido y el más simple de operar fuera de temporada.",
+      "operativo": ["La localidad con más servicios del partido", "Accesos asfaltados en la mayor parte del ejido", "Corredor directo por Ruta 11 con el AMBA"],
+      "faq": [
+        { "q": "¿Es la localidad más grande del partido?", "a": "Sí, y la que tiene servicios más completos todo el año." },
+        { "q": "¿Cubren Nueva Atlantis y Costa Azul?", "a": "Sí, están muy cerca y tienen su propia página." }
+      ],
+      "cerca": ["nueva-atlantis", "costa-azul", "san-bernardo", "aguas-verdes", "partido-de-la-costa"]
+    },
+    {
+      "slug": "nueva-atlantis", "nombre": "Nueva Atlantis", "tipo": "costa",
+      "intro": "Nueva Atlantis es uno de los balnearios más chicos y tranquilos del extremo sur del Partido de la Costa, con playa amplia y poca construcción en altura.",
+      "detalle": "Su escala reducida hace que casi todas las direcciones tengan acceso directo, aunque hay sectores donde la calle es de arena consolidada.",
+      "operativo": ["Escala chica con acceso directo en la mayoría de las direcciones", "Verificación de calles de arena en sectores puntuales", "Volúmenes que suelen encajar en mudanza compartida"],
+      "faq": [
+        { "q": "¿Llegan hasta acá?", "a": "Sí, es parte de nuestra cobertura del Partido de la Costa." },
+        { "q": "¿Conviene compartir el camión?", "a": "Para volúmenes chicos suele convenir, sobre todo estando sobre el corredor de la Ruta 11." }
+      ],
+      "cerca": ["mar-de-ajo", "costa-azul", "san-bernardo", "partido-de-la-costa"]
+    },
+    {
+      "slug": "costa-azul", "nombre": "Costa Azul", "tipo": "costa",
+      "intro": "Costa Azul es un balneario de médanos y forestación entre Mar de Ajó y Nueva Atlantis, con trazado tranquilo y perfil residencial.",
+      "detalle": "Los médanos son parte del paisaje y también un factor práctico: hay calles donde la arena avanza y conviene relevar el acceso antes de la fecha.",
+      "operativo": ["Relevamiento del acceso por avance de arena en calles internas", "Perfil residencial de baja densidad", "Embalaje protegido del ambiente costero"],
+      "faq": [
+        { "q": "¿La arena complica el acceso?", "a": "En algunos sectores sí. Lo verificamos antes para elegir el vehículo adecuado." },
+        { "q": "¿Trabajan todo el año?", "a": "Sí, y fuera de temporada es cuando más conviene coordinar." }
+      ],
+      "cerca": ["mar-de-ajo", "nueva-atlantis", "aguas-verdes", "partido-de-la-costa"]
+    }
+  ]
+}

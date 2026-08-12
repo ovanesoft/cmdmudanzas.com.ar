@@ -1315,3 +1315,78 @@ details[open] .faq__a { animation: faqOpen 340ms var(--ease-out); }
     .mp-node, .mp-label, .sc-box, .sc-house, .sc-pin, .sh-slot, .sh-save { opacity: 1 !important; }
     .marquee__track { animation: none; }
 }
+
+/* ============================================================
+   25. SUBPÁGINAS DE LOCALIDAD
+   ============================================================ */
+.crumb {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2);
+    font-size: var(--fs-sm); color: var(--ink-400);
+    margin-bottom: var(--s-8);
+}
+.crumb a { color: var(--ink-500); transition: color var(--t-fast); }
+.crumb a:hover { color: var(--brick-600); }
+.crumb [aria-current] { color: var(--ink-800); font-weight: 600; }
+
+.local { background: var(--paper-2); }
+.local__in { display: grid; gap: clamp(32px, 4vw, 56px); align-items: start; }
+@media (min-width: 900px) {
+    .local__in { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); }
+}
+.local h2 { margin-block: var(--s-4) var(--s-5); }
+
+.local__ops {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: var(--s-8);
+    box-shadow: var(--sh-1);
+}
+.local__ops h3 { margin-bottom: var(--s-5); }
+.local__ops .btn { margin-top: var(--s-6); width: 100%; }
+
+.ticks { display: grid; gap: var(--s-3); }
+.ticks li {
+    display: grid; grid-template-columns: auto 1fr; gap: var(--s-3);
+    font-size: var(--fs-base); color: var(--ink-600); line-height: 1.55;
+}
+.ticks svg { width: 17px; height: 17px; color: var(--green-500); margin-top: 4px; }
+
+.cerca {
+    margin-top: var(--s-10); padding-top: var(--s-6);
+    border-top: 1px solid var(--line);
+    display: grid; gap: var(--s-3);
+}
+.cerca > span {
+    font-size: var(--fs-xs); font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--sand-600);
+}
+.cerca__links { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.cerca__links a {
+    padding: 7px 14px;
+    font-size: var(--fs-sm); font-weight: 550;
+    color: var(--ink-700);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-full);
+    transition: border-color var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+.cerca__links a:hover {
+    border-color: var(--brick-500); color: var(--brick-600); transform: translateY(-1px);
+}
+
+/* Contador de localidades en los acordeones del footer */
+.seo-fold summary .cnt {
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-size: 11px; font-weight: 700;
+    color: var(--sand-300);
+    background: rgba(255,255,255,.08);
+    border-radius: var(--r-full);
+}
+.prov-grid [aria-current="page"] {
+    padding: 11px 12px;
+    font-size: var(--fs-sm);
+    color: var(--sand-400); font-weight: 600;
+    border-bottom: 1px solid var(--line);
+}

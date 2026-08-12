@@ -132,26 +132,9 @@
   var mq = document.getElementById('marquee');
   if (mq && !reduceMotion) mq.innerHTML += mq.innerHTML;
 
-  /* ---------- Provincias -> WhatsApp con mensaje precargado ---------- */
-  var PROVINCIAS = [
-    'Buenos Aires', 'CABA', 'Catamarca', 'Chaco', 'Chubut', 'Córdoba',
-    'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja',
-    'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan',
-    'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero',
-    'Tierra del Fuego', 'Tucumán'
-  ];
-  var WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1z"/></svg>';
-
-  function buildProvincias(el) {
-    if (!el) return;
-    el.innerHTML = PROVINCIAS.map(function (p) {
-      var msg = encodeURIComponent('Hola, te escribo desde ' + p + ' para hacer una mudanza.');
-      return '<a href="https://wa.me/' + WA + '?text=' + msg + '" target="_blank" rel="noopener">'
-           + '<span>Mudanzas en ' + p + '</span>' + WA_ICON + '</a>';
-    }).join('');
-  }
-  buildProvincias(document.getElementById('provGrid'));
-  buildProvincias(document.getElementById('provGridFooter'));
+  /* ---------- Índice de localidades ----------
+     Los enlaces se generan en build (build/generar.py) y viajan en el HTML,
+     no acá, para que los rastreadores los vean sin ejecutar JavaScript. */
 
   /* ---------- Toasts ---------- */
   var toastsEl = document.getElementById('toasts');
@@ -254,7 +237,7 @@
       };
 
       var lines = [
-        '*Nueva consulta de mudanza — cmdmudanzas.com.ar*',
+        '*Nueva consulta de mudanza — cmdmudanzas.com*',
         '',
         '*Nombre:* ' + val('f-nombre'),
         '*Teléfono:* ' + val('f-tel')

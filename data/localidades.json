@@ -1,0 +1,427 @@
+{
+  "_nota": "Fuente de verdad de las subpáginas de localidad. Agregar una localidad = agregar un objeto acá y correr build/generar.py. El color local describe el LUGAR, nunca inventa operaciones de CMD.",
+  "localidades": [
+    {
+      "slug": "buenos-aires",
+      "nombre": "Buenos Aires",
+      "tipo": "provincia",
+      "tituloExtra": "Provincia de Buenos Aires",
+      "intro": "La provincia más grande del país en población concentra realidades muy distintas: el conurbano denso, la costa atlántica, la pampa agrícola y ciudades como La Plata, Mar del Plata o Bahía Blanca que funcionan casi como provincias aparte.",
+      "detalle": "Esa diversidad cambia por completo la logística. No es lo mismo entrar con un camión de 50 m³ a un barrio cerrado de Pilar que maniobrar en una calle angosta de Avellaneda o cruzar 600 km de ruta hasta Bahía Blanca.",
+      "operativo": [
+        "Definimos el tamaño de camión según el acceso real, no solo según el volumen",
+        "En countries y barrios cerrados coordinamos con guardia y reglamento de consorcio",
+        "Para el interior bonaerense calculamos la mudanza como viaje de larga distancia"
+      ],
+      "faq": [
+        { "q": "¿Llegan a todo el interior bonaerense?", "a": "Sí. La provincia entra en nuestra cobertura nacional, desde el conurbano hasta el sur bonaerense." },
+        { "q": "¿Trabajan en countries y barrios cerrados?", "a": "Sí. Suelen exigir aviso previo, horario pautado y seguro presentado en la administración. Lo coordinamos antes de la fecha." }
+      ],
+      "cerca": ["caba", "la-plata", "mar-del-plata", "bahia-blanca", "tigre", "la-matanza"]
+    },
+    {
+      "slug": "caba",
+      "nombre": "CABA",
+      "tipo": "provincia",
+      "tituloExtra": "Ciudad Autónoma de Buenos Aires",
+      "intro": "Mudarse dentro de la Ciudad tiene una dificultad que no está en el volumen sino en el acceso: calles angostas, estacionamiento medido, edificios con reglamento de consorcio y ascensores que muchas veces no admiten muebles grandes.",
+      "detalle": "Por eso en CABA la variable que más pesa no son los metros cúbicos sino el piso, el ascensor y dónde puede parar el camión. Un tercer piso por escalera puede costar más tiempo que un viaje a otra provincia.",
+      "operativo": [
+        "Relevamos piso, ascensor y ancho de pasillo antes de cotizar",
+        "Coordinamos horario de carga según las restricciones de cada zona",
+        "Cuando el mueble no entra por la escalera, resolvemos con elevación por balcón"
+      ],
+      "faq": [
+        { "q": "¿Qué pasa si el mueble no entra en el ascensor?", "a": "Se resuelve con elevación con soga por balcón o ventana. Conviene avisarlo al cotizar para prever el equipo y el tiempo." },
+        { "q": "¿Hace falta permiso para estacionar el camión?", "a": "Depende de la calle y el horario. Lo verificamos al coordinar la fecha para no perder tiempo el día de la mudanza." }
+      ],
+      "cerca": ["palermo", "belgrano", "caballito", "recoleta", "villa-urquiza", "flores"]
+    },
+    {
+      "slug": "catamarca",
+      "nombre": "Catamarca",
+      "tipo": "provincia",
+      "intro": "Entre valles y montañas, Catamarca combina una capital compacta con localidades del interior a las que se llega por rutas de montaña que exigen planificar el viaje con margen.",
+      "detalle": "La distancia y el relieve son las dos variables que definen una mudanza acá: los tiempos de ruta no se calculan igual que en la llanura.",
+      "operativo": [
+        "Planificamos el recorrido contemplando rutas de montaña y tiempos reales",
+        "El embalaje se refuerza para tramos largos con curvas y pendientes",
+        "Coordinamos la fecha de entrega con margen por condiciones de ruta"
+      ],
+      "faq": [
+        { "q": "¿Cuánto tarda una mudanza desde Buenos Aires?", "a": "Depende del volumen y de la ruta. Al cotizar te damos la fecha estimada de entrega, no solo el precio." },
+        { "q": "¿Llegan al interior de la provincia?", "a": "Sí. Cotizamos hasta la dirección exacta, no solo hasta la capital." }
+      ],
+      "cerca": ["la-rioja", "tucuman", "santiago-del-estero", "salta", "cordoba"]
+    },
+    {
+      "slug": "chaco",
+      "nombre": "Chaco",
+      "tipo": "provincia",
+      "tituloExtra": "Resistencia y alrededores",
+      "intro": "Resistencia y el área metropolitana concentran la mayor parte del movimiento de la provincia, con una conexión directa a Corrientes cruzando el puente General Belgrano.",
+      "detalle": "El calor del noreste es un factor concreto: muebles de madera, electrodomésticos y objetos delicados requieren cuidado con la exposición prolongada durante la carga y el viaje.",
+      "operativo": [
+        "Cargamos en las franjas horarias más frescas cuando la fecha lo permite",
+        "Embalaje reforzado para objetos sensibles a la temperatura",
+        "Conexión habitual con Corrientes y el resto del litoral"
+      ],
+      "faq": [
+        { "q": "¿Hacen mudanzas entre Chaco y Corrientes?", "a": "Sí, es un tramo corto cruzando el puente. Se cotiza como mudanza local entre ambas ciudades." },
+        { "q": "¿Cómo protegen los muebles del calor?", "a": "Con embalaje adecuado y organizando la carga en los horarios de menor temperatura cuando se puede." }
+      ],
+      "cerca": ["corrientes", "formosa", "santiago-del-estero", "santa-fe", "misiones"]
+    },
+    {
+      "slug": "chubut",
+      "nombre": "Chubut",
+      "tipo": "provincia",
+      "intro": "Chubut tiene dos realidades separadas por cientos de kilómetros de estepa: la costa, con Puerto Madryn, Trelew y Comodoro Rivadavia, y la cordillera, con Esquel y la comarca andina.",
+      "detalle": "El viento patagónico es la variable que más condiciona el traslado. Los vehículos altos son sensibles a las ráfagas y hay tramos donde conviene esperar antes que forzar el viaje.",
+      "operativo": [
+        "Planificamos las etapas del viaje contemplando el viento patagónico",
+        "Sujeción reforzada de la carga para tramos largos de estepa",
+        "Cobertura tanto de la costa como de la zona cordillerana"
+      ],
+      "faq": [
+        { "q": "¿El viento puede demorar la entrega?", "a": "Sí, y preferimos avisarlo. Ante ráfagas fuertes se espera: forzar el viaje con un camión alto es un riesgo real." },
+        { "q": "¿Llegan a la comarca andina?", "a": "Sí, tanto a la costa como a Esquel y la zona cordillerana." }
+      ],
+      "cerca": ["rio-negro", "santa-cruz", "neuquen", "la-pampa"]
+    },
+    {
+      "slug": "cordoba",
+      "nombre": "Córdoba",
+      "tipo": "provincia",
+      "tituloExtra": "Capital y Sierras",
+      "intro": "Córdoba concentra un movimiento constante entre la capital y las sierras: Villa Carlos Paz, Alta Gracia, Villa General Belgrano y todo el Valle de Punilla reciben mudanzas todo el año, no solo en temporada.",
+      "detalle": "En Nueva Córdoba el desafío son los edificios en altura con calles de tránsito intenso. En las sierras, en cambio, aparecen los caminos angostos, las pendientes y los accesos de ripio.",
+      "operativo": [
+        "En Nueva Córdoba coordinamos horario de carga por el tránsito y el estacionamiento",
+        "Para las sierras evaluamos el acceso antes de definir el tamaño de camión",
+        "Corredor frecuente con Buenos Aires, Rosario y el litoral"
+      ],
+      "faq": [
+        { "q": "¿Entran a las sierras con camión grande?", "a": "Depende del camino. Cuando el acceso es angosto o de ripio, planteamos un vehículo más chico o transbordo. Se define al cotizar." },
+        { "q": "¿Cuánto tarda desde Buenos Aires?", "a": "Es uno de los corredores más transitados del país. Al cotizar te damos fecha estimada de entrega." }
+      ],
+      "cerca": ["santa-fe", "san-luis", "la-rioja", "catamarca", "santiago-del-estero", "buenos-aires"]
+    },
+    {
+      "slug": "corrientes",
+      "nombre": "Corrientes",
+      "tipo": "provincia",
+      "intro": "Corrientes capital, Paso de los Libres, Goya y Mercedes marcan los puntos de mayor movimiento, con el río Paraná como eje y la conexión directa a Resistencia por el puente General Belgrano.",
+      "detalle": "Es también provincia de paso hacia Brasil por Paso de los Libres, lo que la vuelve relevante para mudanzas internacionales.",
+      "operativo": [
+        "Conexión directa con Chaco cruzando el puente",
+        "Paso de los Libres como corredor hacia Brasil",
+        "Embalaje pensado para la humedad del litoral"
+      ],
+      "faq": [
+        { "q": "¿Sirve como paso para mudanzas a Brasil?", "a": "Sí. Paso de los Libres es uno de los cruces habituales. Las mudanzas internacionales requieren trámites previos con anticipación." },
+        { "q": "¿La humedad afecta los muebles?", "a": "Puede afectar madera y colchones en viajes largos. Por eso el embalaje del litoral se plantea distinto." }
+      ],
+      "cerca": ["chaco", "misiones", "entre-rios", "formosa", "santa-fe"]
+    },
+    {
+      "slug": "entre-rios",
+      "nombre": "Entre Ríos",
+      "tipo": "provincia",
+      "intro": "Paraná, Concordia, Gualeguaychú y Colón concentran el movimiento de una provincia rodeada de ríos, con acceso desde Buenos Aires por el túnel subfluvial o por los puentes del río Uruguay.",
+      "detalle": "La cercanía con Uruguay la vuelve un punto habitual para mudanzas internacionales por los pasos de Gualeguaychú, Colón y Concordia.",
+      "operativo": [
+        "Acceso por túnel subfluvial o por los puentes del río Uruguay",
+        "Pasos internacionales habituales hacia Uruguay",
+        "Corredor frecuente con Buenos Aires y Santa Fe"
+      ],
+      "faq": [
+        { "q": "¿Hacen mudanzas a Uruguay desde Entre Ríos?", "a": "Sí. Los puentes de Gualeguaychú, Colón y Concordia son pasos habituales. Requiere trámites previos, que asesoramos." },
+        { "q": "¿Cuánto tarda desde Buenos Aires?", "a": "Es un tramo corto para escala nacional. Al cotizar te damos la fecha estimada." }
+      ],
+      "cerca": ["santa-fe", "corrientes", "buenos-aires", "misiones"]
+    },
+    {
+      "slug": "formosa",
+      "nombre": "Formosa",
+      "tipo": "provincia",
+      "intro": "Formosa capital y Clorinda marcan los extremos de una provincia larga y de baja densidad, con Clorinda como paso fronterizo hacia Paraguay.",
+      "detalle": "Es una de las provincias más alejadas de los grandes centros logísticos, lo que hace que la planificación anticipada pese más que en cualquier otro destino.",
+      "operativo": [
+        "Planificación con anticipación por la distancia a los centros logísticos",
+        "Clorinda como paso fronterizo hacia Paraguay",
+        "Embalaje reforzado por el calor y la extensión del viaje"
+      ],
+      "faq": [
+        { "q": "¿Con cuánta anticipación conviene coordinar?", "a": "Cuanto antes mejor. Al ser un destino alejado, la disponibilidad de fecha es más acotada que en el corredor central." },
+        { "q": "¿Llegan hasta Clorinda?", "a": "Sí, cotizamos hasta la dirección exacta dentro de la provincia." }
+      ],
+      "cerca": ["chaco", "corrientes", "salta", "santiago-del-estero"]
+    },
+    {
+      "slug": "jujuy",
+      "nombre": "Jujuy",
+      "tipo": "provincia",
+      "tituloExtra": "San Salvador y la Quebrada",
+      "intro": "De San Salvador a la Quebrada de Humahuaca y la puna, Jujuy sube más de tres mil metros en pocos kilómetros. Tilcara, Purmamarca y Humahuaca están a una altura que condiciona cualquier traslado.",
+      "detalle": "La altura importa de verdad: afecta el rendimiento de los vehículos y exige planificar los tramos con más margen. La Quiaca, en el límite con Bolivia, es el punto más al norte del país.",
+      "operativo": [
+        "Planificación de tramos contemplando altura y rutas de montaña",
+        "Sujeción reforzada para caminos sinuosos de la Quebrada",
+        "Cobertura desde el valle hasta la puna"
+      ],
+      "faq": [
+        { "q": "¿Llegan a los pueblos de la Quebrada?", "a": "Sí, a Tilcara, Purmamarca, Humahuaca y la zona. El acceso define el tamaño de camión." },
+        { "q": "¿La altura complica la mudanza?", "a": "Afecta el rendimiento de los vehículos y obliga a calcular tiempos distintos. Se contempla al planificar el viaje." }
+      ],
+      "cerca": ["salta", "tucuman", "catamarca", "santiago-del-estero"]
+    },
+    {
+      "slug": "la-pampa",
+      "nombre": "La Pampa",
+      "tipo": "provincia",
+      "intro": "Santa Rosa y General Pico concentran el movimiento de una provincia de llanura extensa, bien conectada por rutas que la vuelven paso obligado entre Buenos Aires y la Patagonia.",
+      "detalle": "Su ubicación la convierte en punto de tránsito frecuente: muchas mudanzas hacia el sur atraviesan la provincia, lo que facilita coordinar rutas compartidas.",
+      "operativo": [
+        "Paso habitual en el corredor hacia la Patagonia",
+        "Buena conectividad por ruta con Buenos Aires y el sur",
+        "Zona con oportunidades frecuentes de mudanza compartida"
+      ],
+      "faq": [
+        { "q": "¿Conviene la mudanza compartida acá?", "a": "Suele convenir, porque la provincia está sobre rutas muy transitadas hacia el sur y es más fácil que coincida con otro viaje." },
+        { "q": "¿Llegan a General Pico?", "a": "Sí, cotizamos a la dirección exacta dentro de la provincia." }
+      ],
+      "cerca": ["buenos-aires", "cordoba", "san-luis", "rio-negro", "neuquen"]
+    },
+    {
+      "slug": "la-rioja",
+      "nombre": "La Rioja",
+      "tipo": "provincia",
+      "intro": "La Rioja capital se ubica al pie del Velasco, con Chilecito y el Famatina como segundo polo de la provincia y los cañones de Talampaya al oeste.",
+      "detalle": "El clima seco y las temperaturas altas son un factor real para el traslado de muebles de madera y objetos sensibles.",
+      "operativo": [
+        "Embalaje adaptado al clima seco y a las temperaturas altas",
+        "Rutas de montaña hacia Chilecito y la zona del Famatina",
+        "Corredor habitual con Córdoba, Catamarca y San Juan"
+      ],
+      "faq": [
+        { "q": "¿El clima seco afecta los muebles?", "a": "Puede afectar maderas y ciertos acabados en viajes largos. El embalaje se plantea teniéndolo en cuenta." },
+        { "q": "¿Llegan a Chilecito?", "a": "Sí, cotizamos a cualquier punto de la provincia." }
+      ],
+      "cerca": ["catamarca", "san-juan", "cordoba", "san-luis"]
+    },
+    {
+      "slug": "mendoza",
+      "nombre": "Mendoza",
+      "tipo": "provincia",
+      "tituloExtra": "Gran Mendoza y Valle de Uco",
+      "intro": "El Gran Mendoza, Maipú, Luján de Cuyo y el Valle de Uco concentran el movimiento de la provincia, con San Rafael como polo del sur mendocino.",
+      "detalle": "Mendoza es además la puerta a Chile por el Paso Cristo Redentor, que en invierno puede cerrar por nieve. Eso condiciona los tiempos de cualquier mudanza internacional que salga o entre por ahí.",
+      "operativo": [
+        "Paso Cristo Redentor como cruce principal hacia Chile",
+        "En invierno se contempla la posibilidad de cierre del paso por nieve",
+        "Cobertura del Gran Mendoza, Valle de Uco y sur provincial"
+      ],
+      "faq": [
+        { "q": "¿Hacen mudanzas a Chile desde Mendoza?", "a": "Sí, es el cruce más usado. Requiere trámites previos y hay que contemplar posibles cierres del paso en invierno." },
+        { "q": "¿Qué pasa si el paso está cerrado?", "a": "Se reprograma. Por eso conviene coordinar las mudanzas internacionales con anticipación y margen." }
+      ],
+      "cerca": ["san-juan", "san-luis", "la-pampa", "neuquen"]
+    },
+    {
+      "slug": "misiones",
+      "nombre": "Misiones",
+      "tipo": "provincia",
+      "tituloExtra": "Posadas e Iguazú",
+      "intro": "Posadas, Oberá, Eldorado y Puerto Iguazú marcan el eje de una provincia de tierra colorada y selva, encajada entre Paraguay y Brasil.",
+      "detalle": "Es la provincia con más frontera internacional del país: Posadas conecta con Encarnación y Puerto Iguazú con Foz do Iguaçu, lo que la vuelve clave para mudanzas hacia Paraguay y Brasil.",
+      "operativo": [
+        "Doble frontera: Paraguay por Posadas y Brasil por Puerto Iguazú",
+        "Embalaje pensado para la humedad alta de la selva misionera",
+        "Rutas 12 y 14 como ejes de acceso"
+      ],
+      "faq": [
+        { "q": "¿Es el mejor paso para mudarse a Brasil?", "a": "Puerto Iguazú es uno de los cruces habituales. Requiere trámites previos que conviene iniciar con bastante anticipación." },
+        { "q": "¿La humedad afecta la mudanza?", "a": "Sí, sobre todo a madera, colchones y documentación. El embalaje se refuerza por eso." }
+      ],
+      "cerca": ["corrientes", "entre-rios", "chaco"]
+    },
+    {
+      "slug": "neuquen",
+      "nombre": "Neuquén",
+      "tipo": "provincia",
+      "tituloExtra": "Capital, Vaca Muerta y cordillera",
+      "intro": "Neuquén capital creció con fuerza al ritmo de Vaca Muerta, y Añelo pasó de pueblo a centro de actividad. En la cordillera, San Martín de los Andes y Villa La Angostura tienen otra dinámica, más ligada al turismo.",
+      "detalle": "Ese doble perfil genera mudanzas de dos tipos muy distintos: traslados laborales hacia la zona petrolera y mudanzas de familias que eligen la cordillera.",
+      "operativo": [
+        "Corredor frecuente hacia la zona de Vaca Muerta y Añelo",
+        "En la cordillera se contempla nieve y accesos de montaña en invierno",
+        "Sujeción reforzada por el viento patagónico"
+      ],
+      "faq": [
+        { "q": "¿Llegan a Añelo y la zona petrolera?", "a": "Sí. Es un destino con demanda constante de traslados por trabajo." },
+        { "q": "¿Y a San Martín de los Andes en invierno?", "a": "Sí, contemplando las condiciones de ruta. En temporada de nieve se planifica con más margen." }
+      ],
+      "cerca": ["rio-negro", "la-pampa", "mendoza", "chubut"]
+    },
+    {
+      "slug": "rio-negro",
+      "nombre": "Río Negro",
+      "tipo": "provincia",
+      "tituloExtra": "Bariloche y Alto Valle",
+      "intro": "Río Negro va del Atlántico a los Andes: Viedma sobre la costa, el Alto Valle frutícola con General Roca y Cipolletti, y Bariloche en plena cordillera.",
+      "detalle": "Bariloche concentra buena parte de las mudanzas de la provincia, y su acceso en invierno depende de las condiciones de ruta y nieve.",
+      "operativo": [
+        "En invierno el acceso a Bariloche se planifica según estado de ruta",
+        "Corredor del Alto Valle entre Cipolletti, Roca y Neuquén",
+        "Cobertura desde la costa atlántica hasta la cordillera"
+      ],
+      "faq": [
+        { "q": "¿Se puede mudar a Bariloche en invierno?", "a": "Sí, contemplando el estado de las rutas. Se planifica con margen porque la nieve puede demorar el tramo final." },
+        { "q": "¿Llegan a Viedma y la costa?", "a": "Sí, cubrimos la provincia de punta a punta." }
+      ],
+      "cerca": ["neuquen", "chubut", "la-pampa", "buenos-aires"]
+    },
+    {
+      "slug": "salta",
+      "nombre": "Salta",
+      "tipo": "provincia",
+      "tituloExtra": "Capital y Valles Calchaquíes",
+      "intro": "Salta capital, con su casco histórico colonial, y los Valles Calchaquíes hacia Cafayate marcan los dos polos de la provincia, unidos por rutas de montaña de alto valor paisajístico y baja velocidad promedio.",
+      "detalle": "En el casco histórico las calles angostas y los edificios protegidos limitan el acceso de vehículos grandes; en los valles, el desafío es el camino.",
+      "operativo": [
+        "En el casco histórico evaluamos acceso y tamaño de camión antes de la fecha",
+        "Rutas de montaña hacia Cafayate y los Valles Calchaquíes",
+        "Conexión con Jujuy y el corredor del NOA"
+      ],
+      "faq": [
+        { "q": "¿Entran al casco histórico con camión grande?", "a": "Depende de la calle. En zonas angostas o protegidas puede requerir un vehículo más chico. Se define al cotizar." },
+        { "q": "¿Llegan a Cafayate?", "a": "Sí, contemplando que las rutas de montaña bajan bastante la velocidad promedio." }
+      ],
+      "cerca": ["jujuy", "tucuman", "catamarca", "santiago-del-estero", "formosa"]
+    },
+    {
+      "slug": "san-juan",
+      "nombre": "San Juan",
+      "tipo": "provincia",
+      "intro": "San Juan capital y los valles de Tulum, Ullum y Zonda concentran la población de una provincia de clima seco y sol constante, con el Valle de la Luna al norte.",
+      "detalle": "Es zona sísmica, algo que en la práctica se traduce en construcciones antisísmicas y edificios con características particulares que conviene relevar antes de una mudanza.",
+      "operativo": [
+        "Embalaje adaptado al clima seco y a la amplitud térmica",
+        "Corredor habitual con Mendoza y el resto de Cuyo",
+        "Relevamiento previo del acceso en edificios"
+      ],
+      "faq": [
+        { "q": "¿Cuánto tarda desde Buenos Aires?", "a": "Es un tramo largo de ruta. Al cotizar te damos la fecha estimada de entrega." },
+        { "q": "¿Trabajan con Mendoza?", "a": "Sí, es un corredor corto y frecuente dentro de Cuyo." }
+      ],
+      "cerca": ["mendoza", "la-rioja", "san-luis", "cordoba"]
+    },
+    {
+      "slug": "san-luis",
+      "nombre": "San Luis",
+      "tipo": "provincia",
+      "intro": "San Luis capital, Villa Mercedes y las sierras de Merlo marcan el movimiento de una provincia con una red de autopistas notablemente buena para su tamaño.",
+      "detalle": "Esa conectividad la vuelve un punto cómodo dentro del corredor Buenos Aires–Mendoza, con tiempos de tránsito más previsibles que en otras provincias del interior.",
+      "operativo": [
+        "Buena conectividad por autopista con Buenos Aires y Mendoza",
+        "Accesos serranos en la zona de Merlo",
+        "Tiempos de tránsito más previsibles que el promedio del interior"
+      ],
+      "faq": [
+        { "q": "¿Llegan a Merlo?", "a": "Sí. En la zona serrana evaluamos el acceso para definir el tamaño de camión." },
+        { "q": "¿Es un corredor rápido?", "a": "Relativamente sí: la red de autopistas de la provincia ayuda a que los tiempos sean más previsibles." }
+      ],
+      "cerca": ["mendoza", "cordoba", "san-juan", "la-pampa"]
+    },
+    {
+      "slug": "santa-cruz",
+      "nombre": "Santa Cruz",
+      "tipo": "provincia",
+      "tituloExtra": "Río Gallegos y El Calafate",
+      "intro": "Río Gallegos, Caleta Olivia, Pico Truncado y El Calafate marcan los puntos de una provincia enorme y de muy baja densidad, donde las distancias entre localidades se miden en cientos de kilómetros.",
+      "detalle": "Es de los destinos más exigentes del país en logística: viento intenso, tramos largos sin servicios y clima que puede cambiar rápido.",
+      "operativo": [
+        "Planificación por etapas con margen para el viento patagónico",
+        "Sujeción y embalaje reforzados para tramos muy largos",
+        "Cobertura de la costa y de la zona cordillerana"
+      ],
+      "faq": [
+        { "q": "¿Cuánto puede demorar?", "a": "Es uno de los destinos más lejanos del país. Al cotizar damos fecha estimada contemplando el viento y la distancia." },
+        { "q": "¿Llegan a El Calafate?", "a": "Sí, tanto a la costa como a la zona cordillerana." }
+      ],
+      "cerca": ["chubut", "tierra-del-fuego", "rio-negro"]
+    },
+    {
+      "slug": "santa-fe",
+      "nombre": "Santa Fe",
+      "tipo": "provincia",
+      "tituloExtra": "Rosario y Santa Fe capital",
+      "intro": "Rosario y Santa Fe capital son los dos polos de la provincia, con Rafaela, Venado Tuerto y Reconquista como centros regionales de peso propio.",
+      "detalle": "Rosario es la tercera ciudad del país y tiene un movimiento de mudanzas comparable al de un área metropolitana: edificios en altura, tránsito denso y estacionamiento restringido en el centro.",
+      "operativo": [
+        "En el centro de Rosario coordinamos horario por tránsito y estacionamiento",
+        "Corredor muy frecuente con Buenos Aires y Córdoba",
+        "Cobertura de los centros regionales del interior provincial"
+      ],
+      "faq": [
+        { "q": "¿Hacen mudanzas dentro de Rosario?", "a": "Sí, tanto locales dentro de la ciudad como hacia y desde otras provincias." },
+        { "q": "¿Es un corredor frecuente?", "a": "Sí, el eje Buenos Aires–Rosario–Córdoba es de los más transitados, lo que facilita coordinar mudanzas compartidas." }
+      ],
+      "cerca": ["cordoba", "entre-rios", "buenos-aires", "chaco", "santiago-del-estero"]
+    },
+    {
+      "slug": "santiago-del-estero",
+      "nombre": "Santiago del Estero",
+      "tipo": "provincia",
+      "intro": "Santiago capital y La Banda, separadas por el río Dulce, concentran la mayor parte de la población de la provincia más antigua del país.",
+      "detalle": "El calor extremo del verano santiagueño es un factor real de planificación: hay franjas del día en las que directamente no conviene cargar.",
+      "operativo": [
+        "Carga en las franjas horarias más frescas cuando la fecha lo permite",
+        "Embalaje reforzado para objetos sensibles al calor",
+        "Punto de paso habitual entre el NOA y el centro del país"
+      ],
+      "faq": [
+        { "q": "¿Cuándo conviene mudarse acá?", "a": "Si se puede elegir, evitar el pico del verano. Si no, se organiza la carga en las horas de menor temperatura." },
+        { "q": "¿Cubren La Banda?", "a": "Sí, y el resto de la provincia." }
+      ],
+      "cerca": ["tucuman", "salta", "catamarca", "chaco", "santa-fe", "cordoba"]
+    },
+    {
+      "slug": "tierra-del-fuego",
+      "nombre": "Tierra del Fuego",
+      "tipo": "provincia",
+      "tituloExtra": "Ushuaia y Río Grande",
+      "intro": "Ushuaia y Río Grande son los destinos más australes del país, y llegar por tierra implica algo que ninguna otra provincia exige: salir de Argentina, cruzar territorio chileno y volver a entrar.",
+      "detalle": "Ese doble cruce de frontera hace que una mudanza a Tierra del Fuego funcione, en la práctica, como una mudanza internacional aunque el destino sea nacional.",
+      "operativo": [
+        "Doble cruce de frontera por territorio chileno y cruce del estrecho de Magallanes",
+        "Requiere documentación aduanera aunque sea un destino nacional",
+        "Se planifica con anticipación por trámites y disponibilidad de cruce"
+      ],
+      "faq": [
+        { "q": "¿Por qué necesita trámites si es Argentina?", "a": "Porque el acceso terrestre atraviesa territorio chileno. Eso obliga a documentación aduanera igual que en una mudanza internacional." },
+        { "q": "¿Con cuánta anticipación conviene coordinar?", "a": "Con bastante. Entre los trámites y el cruce del estrecho, es el destino nacional que más planificación exige." }
+      ],
+      "cerca": ["santa-cruz", "chubut"]
+    },
+    {
+      "slug": "tucuman",
+      "nombre": "Tucumán",
+      "tipo": "provincia",
+      "tituloExtra": "San Miguel de Tucumán",
+      "intro": "San Miguel de Tucumán concentra la población de la provincia más chica y más densa del país, con Yerba Buena y Tafí Viejo como zona residencial de crecimiento y Tafí del Valle en la montaña.",
+      "detalle": "Esa densidad se nota en la logística: el microcentro tucumano tiene calles angostas y tránsito intenso, mientras que el ascenso a Tafí del Valle exige planificar el camino de montaña.",
+      "operativo": [
+        "En el microcentro coordinamos horario por tránsito y calles angostas",
+        "Camino de montaña para Tafí del Valle",
+        "Nodo del NOA con conexión a Salta, Jujuy, Catamarca y Santiago"
+      ],
+      "faq": [
+        { "q": "¿Llegan a Tafí del Valle?", "a": "Sí. Es camino de montaña, así que se planifica con tiempos distintos a los del valle." },
+        { "q": "¿Trabajan en Yerba Buena?", "a": "Sí, es una de las zonas residenciales con más movimiento del Gran Tucumán." }
+      ],
+      "cerca": ["salta", "santiago-del-estero", "catamarca", "jujuy"]
+    }
+  ]
+}
