@@ -29,6 +29,15 @@ COLS = ['Campaign', 'Campaign Type', 'Campaign Daily Budget', 'Bid Strategy Type
        + [f'Headline {i}' for i in range(1, 16)] \
        + [f'Description {i}' for i in range(1, 5)] + ['Ad Status']
 
+# Columnas de recursos. Editor decide qué representa cada fila según las
+# columnas que estén completas, así que vínculos y textos destacados pueden
+# convivir con campañas, claves y anuncios en un mismo archivo.
+# Ojo: "Description line 1" (vínculo) y "Description 1" (anuncio) son columnas
+# distintas y no se pisan.
+COLS_REC = ['Link text', 'Description line 1', 'Description line 2', 'Callout text']
+
+COLS_FULL = COLS + COLS_REC
+
 COLS_ES = ['Campaña', 'Tipo de campaña', 'Presupuesto diario de la campaña',
            'Tipo de estrategia de puja', 'Redes', 'Idiomas', 'Ubicación',
            'Estado de la campaña', 'Grupo de anuncios', 'CPC máx.',
@@ -142,7 +151,7 @@ def main():
     stats = collections.OrderedDict()
 
     def fila(**kw):
-        f = {c: '' for c in COLS}
+        f = {c: '' for c in COLS_FULL}
         f.update(kw)
         filas.append(f)
 
@@ -183,6 +192,14 @@ def main():
         for n in negs:
             fila(**{'Campaign': cn, 'Keyword': n,
                     'Criterion Type': 'Campaign negative'})
+
+        # --- recursos de la campaña ---
+        for s in cfg['sitelinks']:
+            fila(**{'Campaign': cn, 'Link text': s['texto'],
+                    'Description line 1': s['d1'], 'Description line 2': s['d2'],
+                    'Final URL': HOST + s['url']})
+        for t in cfg['textos_destacados']:
+            fila(**{'Campaign': cn, 'Callout text': t})
 
         # --- grupos geográficos ---
         excl = set(camp.get('excluir_slugs', []))
@@ -273,41 +290,45 @@ def main():
             print('  ✗ ' + e)
         sys.exit(1)
 
-    for ruta, cols in ((os.path.join(RAIZ, 'ads', 'cmd-campana.csv'), COLS),
-                       (os.path.join(RAIZ, 'ads', 'cmd-campana-es.csv'), COLS_ES)):
+    def escribir(ruta, encabezados, cols, seleccion=None):
+        seleccion = seleccion or (lambda f: True)
+        elegidas = [f for f in filas if seleccion(f)]
         with open(ruta, 'w', encoding='utf-8-sig', newline='') as fh:
             w = csv.writer(fh)
-            w.writerow(cols)
-            for f in filas:
-                w.writerow([f[c] for c in COLS])
+            w.writerow(encabezados)
+            for f in elegidas:
+                w.writerow([f[c] for c in cols])
+        return len(elegidas)
 
-    # --- negativas, en archivos aparte para pegar en la interfaz ---
+    A = os.path.join(RAIZ, 'ads')
+    es_vinculo  = lambda f: bool(f['Link text'])
+    es_destacado = lambda f: bool(f['Callout text'])
+    es_recurso  = lambda f: es_vinculo(f) or es_destacado(f)
+
+    # --- el archivo completo: todo en uno ---
+    # Es el que se importa. Los parciales de abajo quedan como respaldo por si
+    # Editor rechazara el maestro.
+    n_full = escribir(os.path.join(A, 'cmd-campana-completa.csv'),
+                      COLS_FULL, COLS_FULL)
+
+    # --- parciales de respaldo ---
+    escribir(os.path.join(A, 'cmd-campana.csv'), COLS, COLS,
+             lambda f: not es_recurso(f))
+    escribir(os.path.join(A, 'cmd-campana-es.csv'), COLS_ES, COLS,
+             lambda f: not es_recurso(f))
+    escribir(os.path.join(A, 'cmd-vinculos.csv'),
+             ['Campaign', 'Link text', 'Description line 1', 'Description line 2', 'Final URL'],
+             ['Campaign', 'Link text', 'Description line 1', 'Description line 2', 'Final URL'],
+             es_vinculo)
+    escribir(os.path.join(A, 'cmd-textos-destacados.csv'),
+             ['Campaign', 'Callout text'], ['Campaign', 'Callout text'],
+             es_destacado)
+
+    # --- negativas sueltas, por si hay que pegarlas a mano en la interfaz ---
     for cn, negs in negativas_por_campana.items():
         nombre = cn.replace('CMD | ', '').replace(' ', '-').lower()
-        ruta = os.path.join(RAIZ, 'ads', f'negativas-{nombre}.txt')
-        with open(ruta, 'w', encoding='utf-8') as fh:
+        with open(os.path.join(A, f'negativas-{nombre}.txt'), 'w', encoding='utf-8') as fh:
             fh.write('\n'.join(negs) + '\n')
-
-    # Editor no acepta recursos en el mismo archivo que campañas y claves:
-    # se importan aparte, cada tipo con sus propias columnas.
-    camps = [c['nombre'] for c in cfg['campanas'].values()]
-
-    ruta = os.path.join(RAIZ, 'ads', 'cmd-vinculos.csv')
-    with open(ruta, 'w', encoding='utf-8-sig', newline='') as fh:
-        w = csv.writer(fh)
-        w.writerow(['Campaign', 'Link text', 'Description line 1',
-                    'Description line 2', 'Final URL'])
-        for cn in camps:
-            for s in cfg['sitelinks']:
-                w.writerow([cn, s['texto'], s['d1'], s['d2'], HOST + s['url']])
-
-    ruta = os.path.join(RAIZ, 'ads', 'cmd-textos-destacados.csv')
-    with open(ruta, 'w', encoding='utf-8-sig', newline='') as fh:
-        w = csv.writer(fh)
-        w.writerow(['Campaign', 'Callout text'])
-        for cn in camps:
-            for t in cfg['textos_destacados']:
-                w.writerow([cn, t])
 
     print('CSV generado — validación OK\n')
     print(f'{"Campaña":34s} {"Grupos":>7s} {"Palabras clave":>15s} {"Presup./día":>12s}')
@@ -317,7 +338,19 @@ def main():
     tk = sum(s['kw'] for s in stats.values())
     tp = sum(s['presu'] for s in stats.values())
     print(f'{"TOTAL":34s} {tg:7d} {tk:15d} {tp:12,d}')
-    print(f'\nfilas: {len(filas)}   negativas por campaña: {len(cfg["negativas"])}')
+    print(f'\ncmd-campana-completa.csv — {n_full} filas')
+    tipos = collections.OrderedDict([
+        ('campañas',        sum(1 for f in filas if f['Campaign Type'])),
+        ('grupos',          sum(1 for f in filas if f['Ad Group'] and f['Ad Group Status'])),
+        ('palabras clave',  sum(1 for f in filas if f['Criterion Type'] in ('Phrase', 'Exact'))),
+        ('negativas',       sum(1 for f in filas if f['Criterion Type'] == 'Campaign negative')),
+        ('anuncios',        sum(1 for f in filas if f['Ad Type'])),
+        ('vínculos',        sum(1 for f in filas if f['Link text'])),
+        ('textos destacados', sum(1 for f in filas if f['Callout text'])),
+    ])
+    for k, v in tipos.items():
+        print(f'    {k:<20} {v:>5}')
+    assert sum(tipos.values()) == n_full, 'hay filas sin clasificar'
 
 
 if __name__ == '__main__':

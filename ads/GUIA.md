@@ -26,22 +26,44 @@ se agrega una localidad al sitio, entra sola a la campaña al regenerar.
 
 ## Cómo importar
 
-Son **tres importaciones**, en este orden. Editor no acepta recursos en el
-mismo archivo que campañas y palabras clave: cada tipo lleva sus propias
-columnas y va por separado.
+**`cmd-campana-completa.csv` — una sola importación, todo adentro.**
 
-| # | Archivo | Qué trae |
+**Cuenta → Importar → Desde archivo**, elegirlo, revisar la vista previa y
+**Publicar**.
+
+Un mismo CSV puede llevar tipos de fila distintos: Editor decide qué
+representa cada fila según las columnas que estén completas. Por eso conviven
+campañas, grupos, claves, negativas, anuncios, vínculos y textos destacados.
+
+| Tipo de fila | Cantidad | Se reconoce por |
 |---|---|---|
-| 1 | `cmd-campana.csv` | Campañas, grupos, claves, negativas y anuncios |
-| 2 | `cmd-vinculos.csv` | 6 vínculos a sitios con descripción, por campaña |
-| 3 | `cmd-textos-destacados.csv` | 10 textos destacados, por campaña |
+| Campañas | 3 | `Campaign Type` |
+| Grupos de anuncios | 119 | `Ad Group Status` |
+| Palabras clave | 1.128 | `Criterion Type` = Phrase / Exact |
+| Negativas de campaña | 350 | `Criterion Type` = Campaign negative |
+| Anuncios | 119 | `Ad Type` |
+| Vínculos a sitios | 18 | `Link text` |
+| Textos destacados | 30 | `Callout text` |
+| **Total** | **1.767** | |
 
-Para cada uno: **Cuenta → Importar → Desde archivo**, elegir el archivo,
-revisar la vista previa y **Publicar**.
+El generador verifica que ninguna fila caiga en dos categorías, y corta si
+alguna queda sin clasificar.
 
-Si los encabezados no se reconocen porque el Editor está en español, para el
-primero existe `cmd-campana-es.csv`. Si aun así falla, Editor ofrece **mapear
-las columnas a mano** en el paso siguiente.
+### Si el maestro falla
+
+En `ads/` quedan los mismos datos partidos por tipo, para importar de a uno:
+
+`cmd-campana.csv` → `cmd-vinculos.csv` → `cmd-textos-destacados.csv`
+
+Y `negativas-*.txt`, una palabra por línea, por si hay que pegarlas a mano en
+**Palabras clave, Negativo → Realizar varios cambios → Usar destinos
+seleccionados → Añadir como palabras clave negativas en el nivel de la
+campaña**. En ese caso hay que corregir la concordancia a **amplia** después
+de pegar: Editor las carga como exactas por defecto.
+
+Si los encabezados no se reconocen porque Editor está en español, existe
+`cmd-campana-es.csv`. Y en cualquier caso Editor ofrece **mapear las columnas
+a mano** en el paso siguiente al de elegir el archivo.
 
 Los vínculos apuntan a anclas de la portada (`#plataforma`, `#compartidas`,
 `#cobertura`, `#cotizador`, `#tipos`, `#proceso`). El generador verifica que
