@@ -65,12 +65,11 @@ def keywords_localidad(nombre, tipo, largo_distancia=True, extra=None):
     n = sin_tildes(nombre)
     kws = [f'mudanzas {n}', f'mudanzas en {n}', f'empresa de mudanzas {n}',
            f'presupuesto mudanza {n}']
-    if tipo == 'provincia':
-        if largo_distancia:
-            # la búsqueda de larga distancia sale del origen, no del destino
-            kws += [f'mudanzas a {n}', f'mudanza de buenos aires a {n}']
-    else:
-        kws += [f'fletes {n}']
+    if tipo == 'provincia' and largo_distancia:
+        # la búsqueda de larga distancia sale del origen, no del destino
+        kws += [f'mudanzas a {n}', f'mudanza de buenos aires a {n}']
+    # Nada de "fletes {localidad}": CMD hace mudanzas, no fletes. El flete es
+    # otro servicio, más chico y más barato, y esos clics no convierten.
     return kws + list(extra or [])
 
 
@@ -139,6 +138,7 @@ def main():
     locs = cargar_localidades()
     por_slug = {l['slug']: l for l in locs}
     err, filas = [], []
+    negativas_por_campana = {}
     stats = collections.OrderedDict()
 
     def fila(**kw):
@@ -158,24 +158,31 @@ def main():
                 'Location': '; '.join(camp['ubicaciones']),
                 'Campaign Status': cfg['estado_inicial']})
 
-        for neg in cfg['negativas']:
-            fila(**{'Campaign': cn, 'Keyword': neg,
-                    'Criterion Type': 'Campaign Negative Phrase',
-                    'Keyword Status': 'Enabled'})
+        # --- negativas ---
+        negs = list(cfg['negativas'])
 
-        # --- negativas cruzadas ---
-        # Sin esto, "mudanza de buenos aires a córdoba" puede caer en la campaña
-        # de Provincia por la clave de frase "mudanzas buenos aires", y el usuario
-        # aterriza en la página genérica en vez de la de Córdoba.
-        # Bloqueando el nombre de cada provincia del interior en CABA y Provincia,
-        # esa búsqueda solo puede servirla la campaña Interior.
+        # Negativas cruzadas: sin esto, "mudanza de buenos aires a córdoba"
+        # puede caer en Provincia por la clave de frase "mudanzas buenos aires",
+        # y el usuario aterriza en la página genérica en vez de la de Córdoba.
         if clave in ('caba', 'provincia'):
-            interior = [l for l in locs if l['tipo'] == 'provincia'
-                        and l['slug'] not in ('caba', 'buenos-aires')]
-            for l in interior:
-                fila(**{'Campaign': cn, 'Keyword': sin_tildes(l['nombre']),
-                        'Criterion Type': 'Campaign Negative Phrase',
-                        'Keyword Status': 'Enabled'})
+            negs += [sin_tildes(l['nombre']) for l in locs
+                     if l['tipo'] == 'provincia'
+                     and l['slug'] not in ('caba', 'buenos-aires')]
+        negativas_por_campana[cn] = negs
+
+        # Van en el CSV, en la misma columna "Keyword" que las positivas.
+        # "Campaign negative" es el valor exacto que documenta Editor para el
+        # nivel de campaña; el intento anterior usaba "Campaign Negative Phrase",
+        # que no existe y hacía fallar la importación entera.
+        #
+        # La concordancia NO se declara en una columna: se indica con puntuación
+        # en el propio texto — sin nada = amplia, "comillas" = frase,
+        # [corchetes] = exacta. Las queremos amplias, así que van en crudo.
+        # Amplia es la que más bloquea: la negativa amplia "flete barato" frena
+        # cualquier búsqueda que traiga ambas palabras, en cualquier orden.
+        for n in negs:
+            fila(**{'Campaign': cn, 'Keyword': n,
+                    'Criterion Type': 'Campaign negative'})
 
         # --- grupos geográficos ---
         excl = set(camp.get('excluir_slugs', []))
@@ -231,6 +238,22 @@ def main():
             fila(**f)
             stats[cn]['grupos'] += 1
 
+    # Una negativa en concordancia amplia bloquea cualquier búsqueda que
+    # contenga TODAS sus palabras, en cualquier orden. Así que si las palabras
+    # de una negativa están todas dentro de una clave positiva de la misma
+    # campaña, esa clave queda muerta y Editor no lo avisa: importa las dos y
+    # el grupo simplemente nunca muestra.
+    # Fue el caso de la negativa "deposito" contra "mudanza de deposito
+    # industrial", que es un servicio que CMD sí presta.
+    for cn, negs in negativas_por_campana.items():
+        positivas = {f['Keyword'] for f in filas
+                     if f['Campaign'] == cn and f['Criterion Type'] in ('Phrase', 'Exact')}
+        for n in negs:
+            pn = set(n.split())
+            for p in positivas:
+                if pn <= set(p.split()):
+                    err.append(f'{cn}: la negativa "{n}" anula la clave "{p}"')
+
     if err:
         print('\nERRORES DE VALIDACIÓN — no se generó el CSV:\n')
         for e in err[:40]:
@@ -244,6 +267,13 @@ def main():
             w.writerow(cols)
             for f in filas:
                 w.writerow([f[c] for c in COLS])
+
+    # --- negativas, en archivos aparte para pegar en la interfaz ---
+    for cn, negs in negativas_por_campana.items():
+        nombre = cn.replace('CMD | ', '').replace(' ', '-').lower()
+        ruta = os.path.join(RAIZ, 'ads', f'negativas-{nombre}.txt')
+        with open(ruta, 'w', encoding='utf-8') as fh:
+            fh.write('\n'.join(negs) + '\n')
 
     print('CSV generado — validación OK\n')
     print(f'{"Campaña":34s} {"Grupos":>7s} {"Palabras clave":>15s} {"Presup./día":>12s}')

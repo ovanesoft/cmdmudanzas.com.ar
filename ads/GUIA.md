@@ -8,12 +8,15 @@
 
 ## Qué contiene
 
-| Campaña | Grupos | Palabras clave | Presupuesto/día | Segmentación |
-|---|---|---|---|---|
-| CMD \| CABA | 51 | 524 | $35.000 | Ciudad de Buenos Aires |
-| CMD \| Provincia de Buenos Aires | 43 | 432 | $35.000 | Provincia de Buenos Aires |
-| CMD \| Interior | 25 | 302 | $35.000 | Argentina |
-| **Total** | **119** | **1.258** | **$105.000** | |
+| Campaña | Grupos | Palabras clave | Negativas | Presupuesto/día | Segmentación |
+|---|---|---|---|---|---|
+| CMD \| CABA | 51 | 434 | 124 | $35.000 | Ciudad de Buenos Aires |
+| CMD \| Provincia de Buenos Aires | 43 | 356 | 124 | $35.000 | Provincia de Buenos Aires |
+| CMD \| Interior | 25 | 338 | 102 | $35.000 | Argentina |
+| **Total** | **119** | **1.128** | **350** | **$105.000** | |
+
+Las negativas **van dentro del CSV**, no aparte. Ver más abajo por qué el
+primer intento falló.
 
 Un grupo por localidad, cada uno apuntando a **su propia página**. 118 URLs de
 destino distintas, todas verificadas con respuesta 200.
@@ -94,11 +97,29 @@ CABA, ese cliente —el de mayor valor— no vería ningún anuncio.
 Por eso cada provincia tiene además las claves `mudanzas a {provincia}` y
 `mudanza de buenos aires a {provincia}`.
 
-**57 negativas por campaña.**
-Las decisivas no son las obvias: **guardamuebles, baulera, depósito, limpieza
-y pintura** están bloqueadas porque **CMD no presta esos servicios**. Sin eso
-se paga por clics imposibles de convertir. Ídem países fuera de Chile, Uruguay
-y Brasil.
+**Negativas en concordancia amplia, dentro del CSV.**
+Las decisivas no son las obvias: **guardamuebles, baulera, limpieza y pintura**
+están bloqueadas porque **CMD no presta esos servicios**. Sin eso se paga por
+clics imposibles de convertir. Ídem países fuera de Chile, Uruguay y Brasil, y
+todo el bloque de **fletes**, que es otro servicio y no convierte en mudanza.
+
+Van en la columna `Keyword`, con `Campaign negative` en `Criterion Type`. Ese
+es el valor exacto que documenta Editor. El primer intento usó
+`Campaign Negative Phrase` —que no existe— y hacía fallar la importación
+entera con un error de criterios.
+
+**La concordancia de una negativa no se declara en una columna.** Se indica con
+puntuación en el propio texto: sin nada = amplia, `"comillas"` = frase,
+`[corchetes]` = exacta. Van sin puntuación, o sea **amplias**, que es la que más
+bloquea: la negativa amplia `flete barato` frena cualquier búsqueda que traiga
+las dos palabras en cualquier orden, mientras que en exacta solo frenaría a
+quien busque literalmente esas dos palabras y nada más.
+
+**Cuidado con las negativas de una sola palabra genérica.** `deposito` en
+amplia parecía razonable para bloquear guardamuebles, pero mataba la clave
+`mudanza de deposito industrial`, que es un servicio real. Se reemplazó por
+`alquiler de deposito`, `deposito de muebles` y `guardar muebles`. El generador
+verifica este choque automáticamente en cada corrida.
 
 **Presupuesto igual en las tres.**
 Es un punto de partida, no una conclusión. Las tres campañas tienen demanda y

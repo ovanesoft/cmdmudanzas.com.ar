@@ -68,13 +68,28 @@
     "significado", "sinonimo", "en ingles", "juego", "juegos",
     "pelicula", "cancion", "letra", "meme",
     "guardamuebles", "guarda muebles", "baulera", "bauleras",
-    "deposito", "depositos", "self storage", "storage",
+    "alquiler de deposito", "alquilar deposito", "deposito de muebles",
+    "guardar muebles", "guardado de muebles", "self storage", "storage",
     "limpieza", "servicio de limpieza", "pintura", "pintor",
     "mudanza a españa", "mudanza a europa", "mudanza a estados unidos",
     "mudanza a mexico", "mudanza a miami", "mudanza a italia",
     "mudanza a colombia", "mudanza a peru", "container maritimo",
-    "mudanza de mascotas sola", "solo flete de moto"
+    "mudanza de mascotas sola",
+
+    "flete", "fletes", "fletero", "fleteros", "fletera",
+    "flete barato", "fletes baratos", "flete economico", "fletes economicos",
+    "flete express", "flete urgente", "flete por hora", "flete chico",
+    "moto flete", "motoflete", "motofletes", "flete moto", "flete en moto",
+    "flete con ayudante", "precio de flete", "cuanto sale un flete",
+    "camioneta con chofer", "alquiler de camioneta con chofer",
+    "camion con chofer", "changuita", "changuitas",
+    "delivery", "envio", "envios", "encomienda", "encomiendas",
+    "mensajeria", "cadeteria", "correo", "paqueteria",
+    "transporte de carga", "transportista", "logistica de cargas",
+    "llevar un mueble", "llevar una heladera", "llevar un colchon",
+    "trasladar un sillon", "traslado de una cama"
   ],
+  "_nota_fletes": "CMD hace mudanzas, no fletes. El flete es otro servicio, más chico y barato: quien lo busca no está buscando una mudanza completa y ese clic no convierte. Por el mismo motivo se sacaron las claves 'fletes {localidad}' que había en CABA y Provincia.",
   "_nota_negativas": "guardamuebles, baulera, deposito, limpieza y pintura van bloqueadas porque CMD NO presta esos servicios. Los países fuera de Chile, Uruguay y Brasil, lo mismo.",
 
   "titulos_base": [
