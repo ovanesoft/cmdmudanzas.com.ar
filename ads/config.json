@@ -92,6 +92,36 @@
   "_nota_fletes": "CMD hace mudanzas, no fletes. El flete es otro servicio, más chico y barato: quien lo busca no está buscando una mudanza completa y ese clic no convierte. Por el mismo motivo se sacaron las claves 'fletes {localidad}' que había en CABA y Provincia.",
   "_nota_negativas": "guardamuebles, baulera, deposito, limpieza y pintura van bloqueadas porque CMD NO presta esos servicios. Los países fuera de Chile, Uruguay y Brasil, lo mismo.",
 
+  "_nota_recursos": "Vínculos a sitios y textos destacados NO entran en el CSV de campañas: Editor los importa en archivos aparte. Límites duros que valida build/campana.py — texto del vínculo 25, cada línea de descripción 35, texto destacado 25.",
+
+  "sitelinks": [
+    { "texto": "Plataforma elevadora", "url": "/#plataforma",
+      "d1": "Hasta 1.200 kg de capacidad", "d2": "Pianos, cajas fuertes, máquinas" },
+    { "texto": "Mudanzas compartidas", "url": "/#compartidas",
+      "d1": "Pagás solo el espacio que usás", "d2": "Hasta 50% más económica" },
+    { "texto": "Cobertura nacional", "url": "/#cobertura",
+      "d1": "Las 24 provincias del país", "d2": "Camiones propios y seguro" },
+    { "texto": "Cotizá sin cargo", "url": "/#cotizador",
+      "d1": "Respuesta en menos de 24 horas", "d2": "Sin compromiso ni obligación" },
+    { "texto": "Empresas y oficinas", "url": "/#tipos",
+      "d1": "Locales, depósitos y oficinas", "d2": "Coordinamos fuera de horario" },
+    { "texto": "Cómo trabajamos", "url": "/#proceso",
+      "d1": "Del presupuesto a la entrega", "d2": "Embalaje, carga y descarga" }
+  ],
+
+  "textos_destacados": [
+    "Seguro incluido",
+    "Camiones propios",
+    "Plataforma de 1.200 kg",
+    "Respuesta en 24 horas",
+    "Embalaje y desembalaje",
+    "Personal capacitado",
+    "Cotización sin cargo",
+    "Carga y descarga incluida",
+    "Camiones de 20 a 50 m³",
+    "Atención por WhatsApp"
+  ],
+
   "titulos_base": [
     "Seguro Incluido Siempre",
     "Camiones de 20 a 50 m³",

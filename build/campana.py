@@ -254,6 +254,19 @@ def main():
                 if pn <= set(p.split()):
                     err.append(f'{cn}: la negativa "{n}" anula la clave "{p}"')
 
+    # --- recursos: vínculos a sitios y textos destacados ---
+    # Límites de Google Ads. Editor rechaza la fila si se pasan, así que se
+    # cortan acá y no en la importación.
+    for s in cfg['sitelinks']:
+        if len(s['texto']) > 25:
+            err.append(f'vínculo "{s["texto"]}": {len(s["texto"])} caracteres, máximo 25')
+        for k in ('d1', 'd2'):
+            if len(s[k]) > 35:
+                err.append(f'vínculo "{s["texto"]}", {k}: {len(s[k])} caracteres, máximo 35')
+    for t in cfg['textos_destacados']:
+        if len(t) > 25:
+            err.append(f'texto destacado "{t}": {len(t)} caracteres, máximo 25')
+
     if err:
         print('\nERRORES DE VALIDACIÓN — no se generó el CSV:\n')
         for e in err[:40]:
@@ -274,6 +287,27 @@ def main():
         ruta = os.path.join(RAIZ, 'ads', f'negativas-{nombre}.txt')
         with open(ruta, 'w', encoding='utf-8') as fh:
             fh.write('\n'.join(negs) + '\n')
+
+    # Editor no acepta recursos en el mismo archivo que campañas y claves:
+    # se importan aparte, cada tipo con sus propias columnas.
+    camps = [c['nombre'] for c in cfg['campanas'].values()]
+
+    ruta = os.path.join(RAIZ, 'ads', 'cmd-vinculos.csv')
+    with open(ruta, 'w', encoding='utf-8-sig', newline='') as fh:
+        w = csv.writer(fh)
+        w.writerow(['Campaign', 'Link text', 'Description line 1',
+                    'Description line 2', 'Final URL'])
+        for cn in camps:
+            for s in cfg['sitelinks']:
+                w.writerow([cn, s['texto'], s['d1'], s['d2'], HOST + s['url']])
+
+    ruta = os.path.join(RAIZ, 'ads', 'cmd-textos-destacados.csv')
+    with open(ruta, 'w', encoding='utf-8-sig', newline='') as fh:
+        w = csv.writer(fh)
+        w.writerow(['Campaign', 'Callout text'])
+        for cn in camps:
+            for t in cfg['textos_destacados']:
+                w.writerow([cn, t])
 
     print('CSV generado — validación OK\n')
     print(f'{"Campaña":34s} {"Grupos":>7s} {"Palabras clave":>15s} {"Presup./día":>12s}')

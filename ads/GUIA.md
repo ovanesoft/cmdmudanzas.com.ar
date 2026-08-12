@@ -26,13 +26,38 @@ se agrega una localidad al sitio, entra sola a la campaña al regenerar.
 
 ## Cómo importar
 
-1. Abrir **Google Ads Editor** y bajar la cuenta 573-915-0215
-2. **Cuenta → Importar → Desde archivo**
-3. Elegir `cmd-campana.csv`. Si los encabezados no se reconocen porque el
-   Editor está en español, usar `cmd-campana-es.csv`. Si aun así falla, Editor
-   ofrece **mapear las columnas a mano** en el paso siguiente
-4. Revisar la vista previa de cambios
-5. **Publicar**
+Son **tres importaciones**, en este orden. Editor no acepta recursos en el
+mismo archivo que campañas y palabras clave: cada tipo lleva sus propias
+columnas y va por separado.
+
+| # | Archivo | Qué trae |
+|---|---|---|
+| 1 | `cmd-campana.csv` | Campañas, grupos, claves, negativas y anuncios |
+| 2 | `cmd-vinculos.csv` | 6 vínculos a sitios con descripción, por campaña |
+| 3 | `cmd-textos-destacados.csv` | 10 textos destacados, por campaña |
+
+Para cada uno: **Cuenta → Importar → Desde archivo**, elegir el archivo,
+revisar la vista previa y **Publicar**.
+
+Si los encabezados no se reconocen porque el Editor está en español, para el
+primero existe `cmd-campana-es.csv`. Si aun así falla, Editor ofrece **mapear
+las columnas a mano** en el paso siguiente.
+
+Los vínculos apuntan a anclas de la portada (`#plataforma`, `#compartidas`,
+`#cobertura`, `#cotizador`, `#tipos`, `#proceso`). El generador verifica que
+las seis existan en el sitio publicado.
+
+### Límites de caracteres
+
+Son de Google Ads, no negociables, y Editor rechaza la fila que se pase:
+
+| Campo | Máximo |
+|---|---|
+| Texto del vínculo | 25 |
+| Descripción 1 y 2 del vínculo | 35 cada una |
+| Texto destacado | 25 |
+
+`build/campana.py` los valida y aborta antes de escribir nada.
 
 > Las tres campañas se importan **en pausa** a propósito. Nada empieza a gastar
 > hasta que se revise y se activen a mano.
