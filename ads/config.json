@@ -1,0 +1,101 @@
+{
+  "_nota": "Configuración de la campaña. Los grupos de anuncios se generan automáticamente desde data/*.json, uno por localidad. Acá van solo presupuestos, negativas, textos y los grupos de servicio que no son geográficos.",
+
+  "cuenta": "573-915-0215",
+  "moneda": "ARS",
+  "cpc_max": 400,
+  "estado_inicial": "Paused",
+
+  "campanas": {
+    "caba": {
+      "nombre": "CMD | CABA",
+      "presupuesto": 35000,
+      "ubicaciones": ["Ciudad Autónoma de Buenos Aires, Argentina"],
+      "tipos": ["barrio"],
+      "general": { "slug": "caba", "nombre": "CABA" }
+    },
+    "provincia": {
+      "nombre": "CMD | Provincia de Buenos Aires",
+      "presupuesto": 35000,
+      "ubicaciones": ["Provincia de Buenos Aires, Argentina"],
+      "tipos": ["gba", "costa"],
+      "general": { "slug": "buenos-aires", "nombre": "Buenos Aires" }
+    },
+    "interior": {
+      "nombre": "CMD | Interior",
+      "presupuesto": 35000,
+      "_ubicacion_nota": "Sin excluir Buenos Aires a propósito: en larga distancia la búsqueda sale del ORIGEN, y el origen suele ser Buenos Aires. Alguien en Palermo que se muda a Córdoba busca 'mudanzas a Córdoba'. Si excluimos CABA, ese cliente (el más valioso) no ve nada.",
+      "ubicaciones": ["Argentina"],
+      "tipos": ["provincia"],
+      "excluir_slugs": ["caba", "buenos-aires"]
+    }
+  },
+
+  "grupos_servicio": [
+    { "campana": "caba", "nombre": "Servicios | Plataforma elevadora", "url": "/#plataforma",
+      "kw": ["camion con plataforma elevadora", "mudanza con plataforma elevadora", "traslado de piano", "mudanza de piano", "traslado de caja fuerte", "mudanza de maquinaria pesada", "elevacion de muebles", "subir muebles por balcon", "mudanza de objetos pesados"],
+      "titulos": ["Plataforma Hasta 1.200 kg", "Pianos y Cajas Fuertes", "Lo Que Otros No Toman"],
+      "desc": "Plataforma elevadora de 1.200 kg para pianos, cajas fuertes y maquinaria pesada." },
+
+    { "campana": "caba", "nombre": "Servicios | Empresas y oficinas", "url": "/#tipos",
+      "kw": ["mudanza de oficinas", "mudanzas empresariales", "mudanza de empresas", "traslado de oficinas", "mudanza corporativa", "mudanza de local comercial", "mudanza de deposito industrial"],
+      "titulos": ["Mudanzas Empresariales", "Mudanza de Oficinas", "Servicio Corporativo"],
+      "desc": "Mudanzas de oficinas y empresas con seguros, ayudantes y coordinación a medida." },
+
+    { "campana": "interior", "nombre": "Servicios | Larga distancia", "url": "/#cobertura",
+      "kw": ["mudanzas a todo el pais", "mudanzas larga distancia", "mudanzas interprovinciales", "mudanzas nacionales", "empresa de mudanzas nacional", "mudanza de provincia a provincia", "mudanzas a otra provincia"],
+      "titulos": ["Mudanzas a Todo el País", "Larga Distancia Segura", "De La Quiaca a Ushuaia"],
+      "desc": "Llegamos a las 24 jurisdicciones del país con camiones propios y seguro incluido." },
+
+    { "campana": "interior", "nombre": "Servicios | Mudanzas compartidas", "url": "/#compartidas",
+      "kw": ["mudanza compartida", "mudanzas compartidas", "compartir camion mudanza", "mudanza economica larga distancia", "mudanza barata a otra provincia", "pagar solo el espacio mudanza"],
+      "titulos": ["Mudanza Compartida", "Pagás Solo Tu Espacio", "Hasta 50% Más Barata"],
+      "desc": "Compartí el camión con otros clientes de tu ruta y pagá solo el espacio que usás." },
+
+    { "campana": "interior", "nombre": "Servicios | Internacionales", "url": "/#tipos",
+      "kw": ["mudanzas internacionales", "mudanza a chile", "mudanza a uruguay", "mudanza a brasil", "mudanzas argentina chile", "mudanza internacional desde argentina"],
+      "titulos": ["Mudanzas a Chile", "Uruguay y Brasil", "Mudanzas Internacionales"],
+      "desc": "Mudanzas a Chile, Uruguay y Brasil. Te asesoramos con los trámites previos." }
+  ],
+
+  "negativas": [
+    "gratis", "gratuito", "gratuita", "sin costo",
+    "trabajo", "empleo", "curso", "cursos", "capacitacion",
+    "cv", "curriculum", "se busca", "busco trabajo", "changas",
+    "franquicia", "franquicias", "vender", "venta de camiones",
+    "comprar camion", "alquiler de camion", "alquilar camioneta",
+    "como hacer una mudanza", "tips", "consejos", "que es",
+    "significado", "sinonimo", "en ingles", "juego", "juegos",
+    "pelicula", "cancion", "letra", "meme",
+    "guardamuebles", "guarda muebles", "baulera", "bauleras",
+    "deposito", "depositos", "self storage", "storage",
+    "limpieza", "servicio de limpieza", "pintura", "pintor",
+    "mudanza a españa", "mudanza a europa", "mudanza a estados unidos",
+    "mudanza a mexico", "mudanza a miami", "mudanza a italia",
+    "mudanza a colombia", "mudanza a peru", "container maritimo",
+    "mudanza de mascotas sola", "solo flete de moto"
+  ],
+  "_nota_negativas": "guardamuebles, baulera, deposito, limpieza y pintura van bloqueadas porque CMD NO presta esos servicios. Los países fuera de Chile, Uruguay y Brasil, lo mismo.",
+
+  "titulos_base": [
+    "Seguro Incluido Siempre",
+    "Camiones de 20 a 50 m³",
+    "Plataforma Hasta 1.200 kg",
+    "Cotizá Gratis Sin Cargo",
+    "Respuesta en 24 Horas",
+    "Embalaje y Desembalaje",
+    "Personal Capacitado",
+    "Consultá por WhatsApp",
+    "Presupuesto Sin Cargo",
+    "Cuidamos Tus Cosas",
+    "Carga y Descarga Incluida",
+    "Mudate Sin Estrés"
+  ],
+
+  "descripciones_base": [
+    "Camiones propios de 20 a 50 m³, plataforma elevadora y seguro incluido en cada viaje.",
+    "Cotizá tu mudanza sin cargo. Te respondemos en menos de 24 horas por WhatsApp.",
+    "Mudanzas de casas, departamentos y oficinas. Embalaje, carga, descarga y ayudantes.",
+    "Seguro de Federación Patronal incluido. No es un adicional: viene con el servicio."
+  ]
+}
