@@ -300,14 +300,47 @@ existan. Un vínculo que cae en el vacío es peor que no tenerlo.
 Los diez textos destacados repiten los mismos argumentos que los títulos de
 los anuncios y que la página.
 
-### Cómo separar las campañas para que no compitan
+### Las tres campañas: CABA, Provincia e Interior
 
-Tres campañas: CABA, Provincia de Buenos Aires, Interior.
+**Esta división no es opcional y se replica tal cual.** No es una preferencia
+de organización: responde a que en Argentina hay tres mercados de mudanza
+que se comportan distinto y que, mezclados en una sola campaña, se comen
+entre sí.
 
-El problema real: alguien en Palermo que se muda a Córdoba busca
-*"mudanzas a Córdoba"*. Esa búsqueda tiene que caer en Interior, pero la
-clave de frase `mudanzas buenos aires` de la campaña Provincia puede
-capturarla, y el usuario aterriza en la página genérica.
+| Campaña | Qué contiene | Grupos | Claves | Segmentación |
+|---|---|---|---|---|
+| **CMD \| CABA** | los 48 barrios porteños + un grupo general | 51 | 434 | Ciudad Autónoma de Buenos Aires |
+| **CMD \| Provincia de Buenos Aires** | 30 localidades del GBA + 12 de la costa atlántica | 43 | 356 | Provincia de Buenos Aires |
+| **CMD \| Interior** | las 22 provincias restantes + servicios de larga distancia | 25 | 338 | Argentina |
+
+Suman las mismas 114 localidades del sitio. Cada grupo apunta a su página.
+
+#### Por qué separarlas y no hacer una sola
+
+Son tres negocios distintos disfrazados del mismo:
+
+- **CABA** — mucho volumen de búsqueda, distancias cortas, ticket bajo. El
+  problema es el acceso: edificios, ascensores, permisos.
+- **Provincia** — volumen medio, distancias medias, ticket medio. Countries,
+  barrios cerrados, y la costa que se mueve por temporada.
+- **Interior** — poco volumen, pero cada mudanza vale varias veces más que
+  una de CABA. Es larga distancia.
+
+Si van juntas en una campaña, el presupuesto se lo lleva CABA, que es donde
+está el volumen de búsqueda, y las mudanzas de mayor valor nunca se muestran.
+**Separarlas es la única forma de poder asignarle plata propia a cada
+mercado.** El presupuesto es de la campaña: si comparten campaña, no hay
+manera de proteger al interior del volumen porteño.
+
+Lo mismo con la segmentación geográfica: cada una necesita la suya, y eso
+también se define a nivel de campaña.
+
+#### El problema que aparece al separarlas
+
+Alguien en Palermo que se muda a Córdoba busca *"mudanzas a Córdoba"*. Esa
+búsqueda tiene que caer en Interior, pero la clave de frase
+`mudanzas buenos aires` de la campaña Provincia puede capturarla, y el
+usuario aterriza en la página genérica.
 
 Se resuelve con **negativas cruzadas**: los nombres de las 22 provincias del
 interior van como negativas en CABA y en Provincia. Ahí no son basura que
@@ -316,6 +349,25 @@ filtrar, son un enrutador.
 Y la campaña Interior **no excluye Buenos Aires**, aunque parezca lógico:
 en larga distancia la búsqueda sale del **origen**, y el origen suele ser
 Buenos Aires. Excluir CABA sería dejar afuera al cliente más valioso.
+
+Por eso cada provincia del interior lleva además las claves
+`mudanzas a {provincia}` y `mudanza de buenos aires a {provincia}`, que CABA
+y Provincia no tienen.
+
+#### El presupuesto
+
+Arrancó en $35.000 por día en cada una, $105.000 en total. **Es un punto de
+partida, no una conclusión.** Igualarlas al principio es lo razonable cuando
+no hay datos: las tres tienen demanda y valor por operación muy distintos,
+pero todavía no se sabe cuánto.
+
+A las dos semanas se mira la columna **"% de impresiones perdidas por
+presupuesto"** en cada campaña y se reasigna. Esa columna dice literalmente
+cuánta demanda te estás perdiendo por no tener plata puesta ahí. Es el único
+dato que justifica mover el reparto.
+
+Lo probable es que Interior pida más de lo que parece: menos búsquedas, pero
+cada una vale mucho más.
 
 ---
 
@@ -495,8 +547,9 @@ independientes del negocio. Lo que hay que cambiar:
   pintura porque CMD **no presta esos servicios**. Otra empresa quizá sí los
   presta, y copiarlas sería bloquearse el negocio. Lo mismo con todo el
   bloque de fletes.
-- **La división en campañas.** Tres campañas fue la respuesta acá porque
-  hay tres realidades distintas de demanda y de valor por operación.
+- **El reparto del presupuesto** entre las tres campañas. La división en
+  CABA / Provincia / Interior sí se replica tal cual —ver sección 6—, pero
+  cuánta plata va a cada una depende de los datos de cada empresa.
 - **Qué rastreadores de IA permitir.**
 
 ---
