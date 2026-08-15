@@ -22,7 +22,15 @@
   var CONV = {
     cotizador: 'AW-11228584141/laW7CJ7p1uAcEM2xmuop',
     whatsapp:  'AW-11228584141/iEFNCLjj1-AcEM2xmuop',
-    llamada:   ''   // pendiente: falta crear la acción CMD – Llamada en Google Ads
+    // "CMD – Llamada" existe en Google Ads pero es de tipo "Llamadas desde
+    // anuncios": la mide Google con un número de reenvío en el recurso de
+    // llamada, sin fragmento en el sitio. Por eso va vacía y así queda bien.
+    //
+    // Lo que NO se está midiendo es el clic en el teléfono DESDE EL SITIO,
+    // que es otro tipo de acción ("Clics en el número de teléfono del sitio
+    // web"). Si se crea, su etiqueta va acá y el clic en tel: empieza a
+    // contar solo, porque el detector de abajo ya está puesto.
+    llamada:   ''
   };
 
   var yaContado = {};
